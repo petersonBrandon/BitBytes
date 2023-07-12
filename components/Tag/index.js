@@ -19,7 +19,7 @@ const Tag = (props) => {
         setTagColor(WEB_DEV.color);
         break;
     }
-  }, []);
+  }, [props.title]);
   return <div className={`p-2 ${tagColor} m-1 rounded-lg`}>{props.title}</div>;
 };
 

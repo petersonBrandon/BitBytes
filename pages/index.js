@@ -22,6 +22,7 @@ export default function Home({ posts }) {
           <div>
             <Image
               src={"/BitBytes Logo.png"}
+              alt="logo"
               width={400}
               height={400}
               className="h-96 w-full"
