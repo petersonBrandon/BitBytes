@@ -11,6 +11,7 @@ import { BiChevronsRight } from "react-icons/bi";
 import { BsFillClipboardFill, BsFillClipboardCheckFill } from "react-icons/bs";
 import { useEffect, useRef, useState } from "react";
 import Prism from "prismjs";
+import Head from "next/head";
 
 export async function getStaticPaths() {
   const postsDirectory = path.join(process.cwd(), "posts");
@@ -74,45 +75,56 @@ export default function BlogPost({ frontmatter, mdxSource }) {
       }, []);
 
       return (
-        <div className="mt-5 mb-5">
-          <div className="flex items-center justify-between bg-gray-800 p-3 rounded-t-lg border-2 border-white border-b-0">
-            <span className="text-white font-semibold">
-              {language ? language : "Code Block"}
-            </span>
-            <button
-              className="hover:text-orange-500 text-white font-semibold py-1 px-2 rounded"
-              onClick={() => {
-                const codeToCopy = props.children.props.children;
+        <>
+          <Head>
+            <title>{frontmatter.title}</title>
+            <meta name="description" content={frontmatter.title} />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
+            <link rel="icon" href="/favicon_new.ico" />
+          </Head>
+          <div className="mt-5 mb-5">
+            <div className="flex items-center justify-between bg-gray-800 p-3 rounded-t-lg border-2 border-white border-b-0">
+              <span className="text-white font-semibold">
+                {language ? language : "Code Block"}
+              </span>
+              <button
+                className="hover:bg-cyan-600 text-white font-semibold py-2 px-2 rounded"
+                onClick={() => {
+                  const codeToCopy = props.children.props.children;
 
-                const textarea = document.createElement("textarea");
-                textarea.value = codeToCopy;
+                  const textarea = document.createElement("textarea");
+                  textarea.value = codeToCopy;
 
-                document.body.appendChild(textarea);
+                  document.body.appendChild(textarea);
 
-                textarea.select();
-                document.execCommand("copy");
+                  textarea.select();
+                  document.execCommand("copy");
 
-                document.body.removeChild(textarea);
-                setCopied(true);
-                setTimeout(() => {
-                  setCopied(false);
-                }, 5000);
-              }}
+                  document.body.removeChild(textarea);
+                  setCopied(true);
+                  setTimeout(() => {
+                    setCopied(false);
+                  }, 5000);
+                }}
+              >
+                {!copied ? (
+                  <BsFillClipboardFill />
+                ) : (
+                  <BsFillClipboardCheckFill className="text-lime-500" />
+                )}
+              </button>
+            </div>
+            <pre
+              className={`language-${language} bg-slate-900 w-full !border-2 !border-white !border-t-0 rounded-b-lg p-3 font-mono !m-0`}
+              ref={codeRef}
             >
-              {!copied ? (
-                <BsFillClipboardFill />
-              ) : (
-                <BsFillClipboardCheckFill className="text-lime-500" />
-              )}
-            </button>
+              <code>{code}</code>
+            </pre>
           </div>
-          <pre
-            className={`language-${language} bg-slate-900 w-full !border-2 !border-white !border-t-0 rounded-b-lg p-3 font-mono !m-0`}
-            ref={codeRef}
-          >
-            <code>{code}</code>
-          </pre>
-        </div>
+        </>
       );
     },
   };
@@ -148,6 +160,7 @@ export default function BlogPost({ frontmatter, mdxSource }) {
         </div>
         <div>
           <h1 className="text-6xl">{frontmatter.title}</h1>
+          <h2 className="text-3xl mt-2">{frontmatter.subtitle}</h2>
           <div className="flex flex-row m-2 items-center">
             <div className="w-28 h-28 rounded-full overflow-hidden m-3 drop-shadow-lg">
               <img
@@ -157,7 +170,7 @@ export default function BlogPost({ frontmatter, mdxSource }) {
               />
             </div>
             <div>
-              <h2 className="m-2 ml-0 text-3xl">{frontmatter.author}</h2>
+              <h2 className="m-2 ml-0 text-2xl">{frontmatter.author}</h2>
               <h2 className="m-2 ml-0 text-l">{frontmatter.date}</h2>
             </div>
           </div>
