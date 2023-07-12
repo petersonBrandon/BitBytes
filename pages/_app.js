@@ -8,15 +8,17 @@ export default function App({ Component, pageProps }) {
 
   return (
     <AnimatePresence mode="wait" presenceAffectsLayout={false}>
-      <motion.div
-        key={router.route}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <NavBar />
-        <Component {...pageProps} />
+      <motion.div key={router.route} className="text-white font-sans">
+        <motion.div>
+          <NavBar />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 0.75 } }}
+          exit={{ opacity: 0, transition: { duration: 0.2 } }}
+        >
+          <Component {...pageProps} />
+        </motion.div>
       </motion.div>
     </AnimatePresence>
   );
