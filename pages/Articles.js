@@ -49,7 +49,7 @@ export default function Articles({ posts }) {
                 </section>
                 <section className="flex flex-row items-start p-5">
                   {post.tags.map((tag) => (
-                    <Tag title={tag} />
+                    <Tag title={tag} key={tag} />
                   ))}
                 </section>
                 {/* <div className="flex flex-row items-center">

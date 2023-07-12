@@ -176,7 +176,7 @@ export default function BlogPost({ frontmatter, mdxSource }) {
           </div>
           <div className="flex flex-row items-start p-5">
             {frontmatter.tags.map((tag) => (
-              <Tag title={tag} />
+              <Tag title={tag} key={tag} />
             ))}
           </div>
         </div>
