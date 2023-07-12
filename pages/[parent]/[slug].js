@@ -64,10 +64,10 @@ export default function BlogPost({ frontmatter, mdxSource }) {
     ul: (props) => <ul className="m-6 list-disc" {...props} />,
     ol: (props) => <ul className="m-6 list-decimal" {...props} />,
     p: (props) => <p className="indent-8 mt-2 h-auto" {...props} />,
-    pre: (props) => {
+    Pre: (props) => {
       const language = props.children.props.className?.replace("language-", "");
-      const [copied, setCopied] = useState(false);
       const code = props.children.props.children;
+      const [copied, setCopied] = useState(false);
       const codeRef = useRef(null);
 
       useEffect(() => {
