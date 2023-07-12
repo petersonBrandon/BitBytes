@@ -4,6 +4,7 @@ import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Tag } from "@/components";
 
 export default function Home({ posts }) {
   return (
@@ -36,9 +37,17 @@ export default function Home({ posts }) {
                 ) : (
                   <></>
                 )}
-                <section className="flex flex-row justify-between items-center p-5">
-                  <div className="text-3xl">{post.title}</div>
+                <section className="flex flex-row justify-between items-start p-5 pb-0">
+                  <div>
+                    <h1 className="text-3xl">{post.title}</h1>
+                    <h2 className="text-xl">{post.subtitle}</h2>
+                  </div>
                   <div>{post.date}</div>
+                </section>
+                <section className="flex flex-row items-start p-5">
+                  {post.tags.map((tag) => (
+                    <Tag title={tag} />
+                  ))}
                 </section>
                 {/* <div className="flex flex-row items-center">
                   <div className="w-12 h-12 rounded-full overflow-hidden m-3">
@@ -81,6 +90,8 @@ export async function getStaticProps() {
         posts.push({
           slug: path.basename(item, path.extname(item)),
           title: data.title,
+          subtitle: data.subtitle,
+          tags: data.tags,
           date: data.date,
           author: data.author,
           author_image: data.author_image,
@@ -93,7 +104,6 @@ export async function getStaticProps() {
 
   readFilesRecursively(postsDirectory);
 
-  // Sort the posts by date in descending order
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return {

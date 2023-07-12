@@ -1,5 +1,6 @@
-import { NavBar } from "@/components";
+import { Footer, NavBar } from "@/components";
 import "@/styles/globals.css";
+import "@/styles/prism-atom-dark.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }) {
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
         >
           <Component {...pageProps} />
+          <Footer />
         </motion.div>
       </motion.div>
     </AnimatePresence>

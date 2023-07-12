@@ -4,10 +4,13 @@ import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import { MDXProvider } from "@mdx-js/react";
-import { SideBtns } from "@/components";
+import { ShareBtns, SideBtns, Tag } from "@/components";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { BiChevronsRight } from "react-icons/bi";
+import { BsFillClipboardFill, BsFillClipboardCheckFill } from "react-icons/bs";
+import { useEffect, useRef, useState } from "react";
+import Prism from "prismjs";
 
 export async function getStaticPaths() {
   const postsDirectory = path.join(process.cwd(), "posts");
@@ -59,7 +62,59 @@ export default function BlogPost({ frontmatter, mdxSource }) {
     h2: (props) => <h1 className="text-3xl mt-5 mb-2" {...props} />,
     ul: (props) => <ul className="m-6 list-disc" {...props} />,
     ol: (props) => <ul className="m-6 list-decimal" {...props} />,
-    p: (props) => <p className="indent-8 mt-2" {...props} />,
+    p: (props) => <p className="indent-8 mt-2 h-auto" {...props} />,
+    pre: (props) => {
+      const language = props.children.props.className?.replace("language-", "");
+      const [copied, setCopied] = useState(false);
+      const code = props.children.props.children;
+      const codeRef = useRef(null);
+
+      useEffect(() => {
+        Prism.highlightElement(codeRef.current);
+      }, []);
+
+      return (
+        <div className="mt-5 mb-5">
+          <div className="flex items-center justify-between bg-gray-800 p-3 rounded-t-lg border-2 border-white border-b-0">
+            <span className="text-white font-semibold">
+              {language ? language : "Code Block"}
+            </span>
+            <button
+              className="hover:text-orange-500 text-white font-semibold py-1 px-2 rounded"
+              onClick={() => {
+                const codeToCopy = props.children.props.children;
+
+                const textarea = document.createElement("textarea");
+                textarea.value = codeToCopy;
+
+                document.body.appendChild(textarea);
+
+                textarea.select();
+                document.execCommand("copy");
+
+                document.body.removeChild(textarea);
+                setCopied(true);
+                setTimeout(() => {
+                  setCopied(false);
+                }, 5000);
+              }}
+            >
+              {!copied ? (
+                <BsFillClipboardFill />
+              ) : (
+                <BsFillClipboardCheckFill className="text-lime-500" />
+              )}
+            </button>
+          </div>
+          <pre
+            className={`language-${language} bg-slate-900 w-full !border-2 !border-white !border-t-0 rounded-b-lg p-3 font-mono !m-0`}
+            ref={codeRef}
+          >
+            <code>{code}</code>
+          </pre>
+        </div>
+      );
+    },
   };
 
   const { asPath, pathname } = useRouter();
@@ -68,8 +123,6 @@ export default function BlogPost({ frontmatter, mdxSource }) {
     .split("/")
     .filter((part) => part.trim() !== "")
     .map((part) => decodeURIComponent(part));
-
-  console.log(pathParts);
 
   return (
     <main className="w-full flex flex-col items-center mb-16">
@@ -108,14 +161,19 @@ export default function BlogPost({ frontmatter, mdxSource }) {
               <h2 className="m-2 ml-0 text-l">{frontmatter.date}</h2>
             </div>
           </div>
+          <div className="flex flex-row items-start p-5">
+            {frontmatter.tags.map((tag) => (
+              <Tag title={tag} />
+            ))}
+          </div>
         </div>
         <div className="ml-2 mt-5">
           <MDXProvider components={components}>
             <MDXRemote {...mdxSource} />
           </MDXProvider>
         </div>
+        <ShareBtns />
       </div>
-      <SideBtns />
     </main>
   );
 }
