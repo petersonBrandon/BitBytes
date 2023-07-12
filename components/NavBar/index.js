@@ -31,7 +31,7 @@ const NavBar = () => {
               />
             </motion.div>
             <motion.h1 variants={textHover} className="ml-3 text-xl">
-              ByteBits
+              BitBytes
             </motion.h1>
           </Link>
         </motion.div>
