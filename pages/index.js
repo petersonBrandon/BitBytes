@@ -34,7 +34,7 @@ export default function Home({ articles, questions }) {
           </div>
           <section className="w-full flex flex-col items-center pt-5">
             <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12 max-lg:text-xl items-center">
-              <h2 className="flex flex-row items-center justify-center">
+              <h2 className="flex flex-row items-center justify-center mr-3">
                 <HiOutlineNewspaper className="mr-4" />
                 Recent Articles
               </h2>
@@ -42,7 +42,8 @@ export default function Home({ articles, questions }) {
                 href="Articles"
                 className="flex flex-row w-1/2 bg-orange-500 justify-center items-center p-3 rounded-lg hover:scale-110 ease-in-out duration-200"
               >
-                <h3 className="text-lg">All Articles</h3> <BiChevronsRight />
+                <h3 className="text-lg">All Articles</h3>
+                <BiChevronsRight className="max-lg:hidden" />
               </Link>
             </div>
             {articles.map((post) => (
@@ -72,7 +73,7 @@ export default function Home({ articles, questions }) {
                     </div>
                     <div>{post.date}</div>
                   </section>
-                  <section className="flex flex-row items-start p-5">
+                  <section className="flex flex-row items-start p-5 flex-wrap w-full">
                     {post.tags.map((tag) => (
                       <Tag title={tag} key={tag} />
                     ))}
@@ -93,7 +94,7 @@ export default function Home({ articles, questions }) {
           </section>
           <section className="w-full flex flex-col items-center pt-5 mt-10">
             <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12 max-lg:text-xl items-center">
-              <h2 className="flex flex-row items-center justify-center">
+              <h2 className="flex flex-row items-center justify-center mr-3">
                 <HiOutlineQuestionMarkCircle className="mr-4" />
                 Recent Questions
               </h2>
@@ -101,7 +102,8 @@ export default function Home({ articles, questions }) {
                 href="Questions"
                 className="flex flex-row w-1/2 bg-orange-500 justify-center items-center p-3 rounded-lg hover:scale-110 ease-in-out duration-200"
               >
-                <h3 className="text-lg">All Questions</h3> <BiChevronsRight />
+                <h3 className="text-lg">All Questions</h3>
+                <BiChevronsRight className="max-lg:hidden" />
               </Link>
             </div>
             {questions.map((post) => (
@@ -131,7 +133,7 @@ export default function Home({ articles, questions }) {
                     </div>
                     <div>{post.date}</div>
                   </section>
-                  <section className="flex flex-row items-start p-5">
+                  <section className="flex flex-row items-start p-5 flex-wrap w-full">
                     {post.tags.map((tag) => (
                       <Tag title={tag} key={tag} />
                     ))}
