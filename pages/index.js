@@ -7,6 +7,10 @@ import { motion } from "framer-motion";
 import { Tag } from "@/components";
 import Image from "next/image";
 import { BiChevronsRight } from "react-icons/bi";
+import {
+  HiOutlineNewspaper,
+  HiOutlineQuestionMarkCircle,
+} from "react-icons/hi";
 
 export default function Home({ articles, questions }) {
   return (
@@ -30,7 +34,10 @@ export default function Home({ articles, questions }) {
           </div>
           <section className="w-full flex flex-col items-center pt-5">
             <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12 max-lg:text-xl items-center">
-              <h2>Recent Articles</h2>
+              <h2 className="flex flex-row items-center justify-center">
+                <HiOutlineNewspaper className="mr-4" />
+                Recent Articles
+              </h2>
               <Link
                 href="Articles"
                 className="flex flex-row w-1/2 bg-orange-500 justify-center items-center p-3 rounded-lg hover:scale-110 ease-in-out duration-200"
@@ -86,7 +93,10 @@ export default function Home({ articles, questions }) {
           </section>
           <section className="w-full flex flex-col items-center pt-5 mt-10">
             <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12 max-lg:text-xl items-center">
-              <h2>Recent Questions</h2>
+              <h2 className="flex flex-row items-center justify-center">
+                <HiOutlineQuestionMarkCircle className="mr-4" />
+                Recent Questions
+              </h2>
               <Link
                 href="Questions"
                 className="flex flex-row w-1/2 bg-orange-500 justify-center items-center p-3 rounded-lg hover:scale-110 ease-in-out duration-200"
