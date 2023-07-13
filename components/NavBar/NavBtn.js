@@ -12,11 +12,11 @@ const NavBtn = (props) => {
   return (
     <motion.div
       whileHover="hover"
-      className="h-full max-md:w-full max-md:h-auto"
+      className="h-full max-lg:w-full max-lg:h-auto"
     >
       <Link
         href={`/${props.title}`}
-        className="h-full w-full flex flex-row items-center justify-center p-5 max-md:h-auto max-md:p-2"
+        className="h-full w-full flex flex-row items-center justify-center p-5 max-lg:h-auto max-lg:p-2"
       >
         <motion.div variants={spinHover}>{props.icon}</motion.div>
         <motion.div variants={textHover} className="ml-3">

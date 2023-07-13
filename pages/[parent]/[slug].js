@@ -11,6 +11,7 @@ import { BiChevronsRight } from "react-icons/bi";
 import { BsFillClipboardFill, BsFillClipboardCheckFill } from "react-icons/bs";
 import { useEffect, useRef, useState } from "react";
 import Prism from "prismjs";
+import "prismjs/components/prism-jsx.min";
 import Head from "next/head";
 
 export async function getStaticPaths() {
@@ -58,19 +59,15 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const useCodeHighlighting = (codeRef) => {
-  useEffect(() => {
-    Prism.highlightElement(codeRef.current);
-  }, []);
-};
-
 const PreComponent = (props) => {
   const language = props.children.props.className?.replace("language-", "");
   const code = props.children.props.children;
   const [copied, setCopied] = useState(false);
   const codeRef = useRef(null);
 
-  useCodeHighlighting(codeRef);
+  useEffect(() => {
+    Prism.highlightElement(codeRef.current);
+  }, []);
 
   return (
     <>
@@ -86,7 +83,7 @@ const PreComponent = (props) => {
             {language ? language : "Code Block"}
           </span>
           <button
-            className="hover:bg-cyan-600 text-white font-semibold py-2 px-2 rounded"
+            className="text-white font-semibold py-2 px-2 rounded"
             onClick={() => {
               const codeToCopy = props.children.props.children;
 
@@ -131,11 +128,16 @@ export default function BlogPost({ frontmatter, mdxSource }) {
   };
 
   const components = {
-    h2: (props) => <h1 className="text-3xl mt-5 mb-2" {...props} />,
+    h2: (props) => <h1 className="text-4xl mt-5 mb-2 font-bold" {...props} />,
+    h3: (props) => <h1 className="text-xl mt-5 mb-2 font-bold" {...props} />,
     ul: (props) => <ul className="m-6 list-disc" {...props} />,
-    ol: (props) => <ul className="m-6 list-decimal" {...props} />,
-    p: (props) => <p className="indent-8 mt-2 h-auto" {...props} />,
+    ol: (props) => <ol className="m-6 list-decimal" {...props} />,
+    p: (props) => <p className="mt-2 h-auto text-xl" {...props} />,
     pre: (props) => <PreComponent {...props} frontmatter={frontmatter} />,
+    img: (props) => <img className="mb-10" {...props} />,
+    strong: (props) => (
+      <strong className="text-2xl text-orange-500" {...props} />
+    ),
   };
 
   const { asPath, pathname } = useRouter();
@@ -147,33 +149,36 @@ export default function BlogPost({ frontmatter, mdxSource }) {
 
   return (
     <main className="w-full flex flex-col items-center mb-16">
-      <div className="w-2/4 flex flex-col mt-16 pt-5 max-md:w-11/12 max-md:pt-9">
-        <div className="flex flex-row items-center mb-5 justify-start max-w-md max-md:text-sm">
-          <Link href="/" className="hover:text-orange-500 line-clamp-1">
+      <div className="w-2/4 flex flex-col mt-16 pt-5 max-lg:w-11/12 max-lg:pt-9">
+        <div className="w-full flex flex-row items-center mb-5 justify-start max-lg:text-sm">
+          <Link
+            href="/"
+            className="hover:text-orange-500 line-clamp-1 min-w-fit"
+          >
             Home
           </Link>
-          <BiChevronsRight className="h-6 w-16 max-md:w-7" />
+          <BiChevronsRight className="h-6 w-6 ml-2 mr-2 max-lg:w-7" />
           <Link
             href={`/${pathParts[0]}`}
-            className="hover:text-orange-500 line-clamp-1"
+            className="hover:text-orange-500 line-clamp-1 min-w-fit"
           >
             {pathParts[0]}
           </Link>
-          <BiChevronsRight className="h-6 w-16 max-md:w-7" />
+          <BiChevronsRight className="h-6 w-6 ml-2 mr-2 max-lg:w-7 max" />
           <Link
             href={`/${pathParts[0]}/${pathParts[1]}`}
-            className="hover:text-orange-500 line-clamp-1"
+            className="hover:text-orange-500 line-clamp-1 min-w-fit max-lg:min-w-0"
           >
             {pathParts[1]}
           </Link>
         </div>
         <div>
-          <h1 className="text-6xl max-md:text-4xl">{frontmatter.title}</h1>
-          <h2 className="text-3xl mt-2 max-md:text-xl">
+          <h1 className="text-6xl max-lg:text-4xl">{frontmatter.title}</h1>
+          <h2 className="text-3xl mt-2 max-lg:text-xl">
             {frontmatter.subtitle}
           </h2>
           <div className="flex flex-row m-2 items-center">
-            <div className="w-28 h-28 rounded-full overflow-hidden m-3 max-md:w-16 max-md:h-16">
+            <div className="w-28 h-28 rounded-full overflow-hidden m-3 max-lg:w-16 max-lg:h-16">
               <img
                 src={frontmatter.author_image}
                 alt={frontmatter.author}
@@ -181,10 +186,10 @@ export default function BlogPost({ frontmatter, mdxSource }) {
               />
             </div>
             <div>
-              <h2 className="m-2 ml-0 text-2xl max-md:text-lg">
+              <h2 className="m-2 ml-0 text-2xl max-lg:text-lg">
                 {frontmatter.author}
               </h2>
-              <h2 className="m-2 ml-0">{frontmatter.date}</h2>
+              <h2 className="m-2 ml-0">{`Last updated ${frontmatter.date}`}</h2>
             </div>
           </div>
           <div className="flex flex-row items-start p-5">

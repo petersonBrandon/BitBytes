@@ -20,14 +20,14 @@ const NavBar = () => {
   };
 
   const [isMobile, setIsMobile] = useState(
-    useMediaQuery("(max-width:768px)", { noSsr: true })
+    useMediaQuery("(max-width:1024px)", { noSsr: true })
   );
 
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
     <>
-      <div className="bg-gray-700 t-0 w-full h-20 z-50 max-md:flex flex-row-reverse justify-center items-center hidden max-md:fixed">
+      <div className="bg-gray-700 t-0 w-full h-20 z-50 max-lg:flex flex-row-reverse justify-center items-center hidden max-lg:fixed">
         <div className="w-11/12 h-20 z-50 flex flex-row-reverse justify-between items-center">
           <div
             className="p-3 text-white"
@@ -56,10 +56,10 @@ const NavBar = () => {
         animate={mobileNavOpen ? { translateY: 0 } : {}}
         transition={{ bounce: false }}
         initial={isMobile ? { translateY: "-100vh" } : { translateY: 0 }}
-        className={`w-full bg-gray-700 drop-shadow-xl h-16 flex flex-row justify-center items-center fixed z-40 max-md:h-screen max-md:pt-16`}
+        className={`w-full bg-gray-700 drop-shadow-xl h-16 flex flex-row justify-center items-center fixed z-40 max-lg:h-screen max-lg:pt-16`}
       >
-        <div className="h-full w-4/5 flex flex-row justify-between items-center max-md:flex-col ">
-          <motion.div whileHover="hover" className="max-md:hidden">
+        <div className="h-full w-4/5 flex flex-row justify-between items-center max-lg:flex-col ">
+          <motion.div whileHover="hover" className="max-lg:hidden">
             <Link href="/" className="flex flex-row items-center">
               <motion.div variants={spinHover}>
                 <Image
@@ -77,7 +77,7 @@ const NavBar = () => {
           </motion.div>
           <div
             onClick={() => setMobileNavOpen(false)}
-            className="h-full w-full flex flex-row justify-end items-center max-md:flex-col max-md:justify-start max-md:mt-3"
+            className="h-full w-full flex flex-row justify-end items-center max-lg:flex-col max-lg:justify-start max-lg:mt-3"
           >
             <NavBtn
               title="Articles"
