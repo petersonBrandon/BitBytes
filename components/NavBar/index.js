@@ -77,7 +77,7 @@ const NavBar = () => {
           </motion.div>
           <div
             onClick={() => setMobileNavOpen(false)}
-            className="h-full w-full flex flex-row justify-end items-center max-lg:flex-col max-lg:justify-start max-lg:mt-3"
+            className="h-full w-full flex flex-row justify-end items-center max-lg:flex-col max-lg:justify-start max-lg:mt-6"
           >
             <NavBtn
               title="Articles"
