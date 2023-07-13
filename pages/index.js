@@ -35,7 +35,7 @@ export default function Home({ articles, questions }) {
           <section className="w-full flex flex-col items-center pt-5">
             <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12 max-lg:text-xl items-center">
               <h2 className="flex flex-row items-center justify-center mr-3">
-                <HiOutlineNewspaper className="mr-4" />
+                <HiOutlineNewspaper className="mr-4 max-lg:w-9 max-lg:h-auto" />
                 Recent Articles
               </h2>
               <Link
@@ -78,16 +78,6 @@ export default function Home({ articles, questions }) {
                       <Tag title={tag} key={tag} />
                     ))}
                   </section>
-                  {/* <div className="flex flex-row items-center">
-                  <div className="w-12 h-12 rounded-full overflow-hidden m-3">
-                    <img
-                      src={post.author_image}
-                      alt={post.author}
-                      className="object-cover h-full"
-                    />
-                  </div>
-                  <div>{post.author}</div>
-                </div> */}
                 </Link>
               </motion.div>
             ))}
@@ -95,7 +85,7 @@ export default function Home({ articles, questions }) {
           <section className="w-full flex flex-col items-center pt-5 mt-10">
             <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12 max-lg:text-xl items-center">
               <h2 className="flex flex-row items-center justify-center mr-3">
-                <HiOutlineQuestionMarkCircle className="mr-4" />
+                <HiOutlineQuestionMarkCircle className="mr-4 max-lg:w-9 max-lg:h-auto" />
                 Recent Questions
               </h2>
               <Link
@@ -138,16 +128,6 @@ export default function Home({ articles, questions }) {
                       <Tag title={tag} key={tag} />
                     ))}
                   </section>
-                  {/* <div className="flex flex-row items-center">
-                  <div className="w-12 h-12 rounded-full overflow-hidden m-3">
-                    <img
-                      src={post.author_image}
-                      alt={post.author}
-                      className="object-cover h-full"
-                    />
-                  </div>
-                  <div>{post.author}</div>
-                </div> */}
                 </Link>
               </motion.div>
             ))}
