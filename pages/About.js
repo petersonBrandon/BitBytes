@@ -49,14 +49,12 @@ export default function About() {
           </p>
           <div className="flex flex-row items-center w-3/4 mt-16">
             <div className="w-36 h-36 rounded-full overflow-hidden m-3">
-              <img
-                src={
-                  "https://firebasestorage.googleapis.com/v0/b/level-up-gt-479b6.appspot.com/o/Brandon%20Peterson.jpg?alt=media&token=4671c1de-aece-4de9-bb26-db18d3b02e8d"
-                }
+              <Image
+                src={"/Brandon.webp"}
                 alt={"Brandon Peterson"}
-                // width={400}
-                // height={400}
-                className="object-cover h-full translate-y-0"
+                width={400}
+                height={400}
+                className="object-cover h-full scale-125"
               />
             </div>
             <Link

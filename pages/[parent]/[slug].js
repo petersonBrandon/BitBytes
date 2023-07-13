@@ -162,11 +162,11 @@ export default function BlogPost({ frontmatter, mdxSource }) {
           <h1 className="text-6xl">{frontmatter.title}</h1>
           <h2 className="text-3xl mt-2">{frontmatter.subtitle}</h2>
           <div className="flex flex-row m-2 items-center">
-            <div className="w-28 h-28 rounded-full overflow-hidden m-3 drop-shadow-lg">
+            <div className="w-28 h-28 rounded-full overflow-hidden m-3">
               <img
                 src={frontmatter.author_image}
                 alt={frontmatter.author}
-                className="object-cover h-full"
+                className="object-cover h-full w-full scale-125"
               />
             </div>
             <div>
