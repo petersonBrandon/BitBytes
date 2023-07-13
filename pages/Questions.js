@@ -16,8 +16,8 @@ export default function Questions({ posts }) {
         <link rel="icon" href="/favicon_new.ico" />
       </Head>
       <main className="w-full flex flex-col items-center mb-16 min-h-screen">
-        <div className="w-4/5 flex flex-col items-center mt-16 pt-5">
-          <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between">
+        <div className="w-4/5 flex flex-col items-center mt-16 pt-5 max-md:pt-7">
+          <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-md:w-11/12">
             <h2>All Questions</h2>
           </div>
           {posts.length <= 0 ? (
@@ -29,7 +29,7 @@ export default function Questions({ posts }) {
                   boxShadow: " 0px 0px 18px 4px rgba(237, 231, 227, 0.5)",
                 }}
                 key={post.slug}
-                className="w-2/4 border-2 border-white m-4 rounded-lg"
+                className="w-2/4 border-2 border-white m-4 rounded-lg max-md:w-full"
               >
                 <Link href={`/${post.parent}/${post.slug}`}>
                   {post.image != null ? (
@@ -43,7 +43,7 @@ export default function Questions({ posts }) {
                   ) : (
                     <></>
                   )}
-                  <section className="flex flex-row justify-between items-start p-5 pb-0">
+                  <section className="flex flex-row justify-between items-start p-5 pb-0 max-md:flex-col-reverse">
                     <div>
                       <h1 className="text-3xl">{post.title}</h1>
                       <h2 className="text-xl">{post.subtitle}</h2>

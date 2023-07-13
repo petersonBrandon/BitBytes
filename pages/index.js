@@ -18,22 +18,22 @@ export default function Home({ posts }) {
         <link rel="icon" href="/favicon_new.ico" />
       </Head>
       <main className="w-full flex flex-col items-center mb-16 min-h-screen">
-        <div className="w-4/5 flex flex-col items-center mt-16 pt-5">
+        <div className="w-4/5 flex flex-col items-center mt-16 pt-5 max-md:w-11/12">
           <div>
             <Image
               src={"/BitBytes Logo.png"}
               alt="logo"
               width={400}
               height={400}
-              className="h-96 w-full"
+              className="h-96 w-full max-md:h-72"
             />
           </div>
           <section className="w-full flex flex-col items-center pt-5">
-            <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between">
+            <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-md:w-11/12 max-md:text-xl items-center">
               <h2>Recent Articles</h2>
               <Link
                 href="Articles"
-                className="flex flex-row bg-orange-500 p-3 rounded-lg hover:scale-110 ease-in-out duration-200"
+                className="flex flex-row w-1/2 bg-orange-500 justify-center items-center p-3 rounded-lg hover:scale-110 ease-in-out duration-200"
               >
                 <h3 className="text-lg">All Articles</h3> <BiChevronsRight />
               </Link>
@@ -44,7 +44,7 @@ export default function Home({ posts }) {
                   boxShadow: " 0px 0px 18px 4px rgba(237, 231, 227, 0.5)",
                 }}
                 key={post.slug}
-                className="w-2/4 border-2 border-white m-4 rounded-lg"
+                className="w-2/4 border-2 border-white m-4 rounded-lg max-md:w-full"
               >
                 <Link href={`/${post.parent}/${post.slug}`}>
                   {post.image != null ? (
@@ -58,7 +58,7 @@ export default function Home({ posts }) {
                   ) : (
                     <></>
                   )}
-                  <section className="flex flex-row justify-between items-start p-5 pb-0">
+                  <section className="flex flex-row justify-between items-start p-5 pb-0 max-md:flex-col-reverse">
                     <div>
                       <h1 className="text-3xl">{post.title}</h1>
                       <h2 className="text-xl">{post.subtitle}</h2>

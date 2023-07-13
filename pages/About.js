@@ -16,7 +16,7 @@ export default function About() {
         <link rel="icon" href="/favicon_new.ico" />
       </Head>
       <main className="w-full flex flex-col items-center mb-16 min-h-screen">
-        <div className="w-4/5 flex flex-col items-center mt-16 pt-7">
+        <div className="w-4/5 flex flex-col items-center mt-16 pt-7 max-md:w-full max-md:pt-14">
           <div className="w-3/4 text-4xl pb-5 mb-6 flex flex-row justify-between">
             <h2>About BitBytes</h2>
           </div>
@@ -48,7 +48,7 @@ export default function About() {
             together!`}
           </p>
           <div className="flex flex-row items-center w-3/4 mt-16">
-            <div className="w-36 h-36 rounded-full overflow-hidden m-3">
+            <div className="w-36 h-36 rounded-full overflow-hidden m-3 max-md:w-24 max-md:h-24">
               <Image
                 src={"/Brandon.webp"}
                 alt={"Brandon Peterson"}
@@ -59,7 +59,7 @@ export default function About() {
             </div>
             <Link
               href="https://www.brandonpeterson.dev"
-              className="underline hover:decoration-dashed hover:text-orange-500 text-3xl"
+              className="underline hover:decoration-dashed hover:text-orange-500 text-3xl max-md:text-lg"
             >
               Brandon Peterson
             </Link>

@@ -59,20 +59,24 @@ export async function getStaticProps({ params }) {
 }
 
 export default function BlogPost({ frontmatter, mdxSource }) {
+  const useCodeHighlighting = (codeRef) => {
+    useEffect(() => {
+      Prism.highlightElement(codeRef.current);
+    }, []);
+  };
+
   const components = {
     h2: (props) => <h1 className="text-3xl mt-5 mb-2" {...props} />,
     ul: (props) => <ul className="m-6 list-disc" {...props} />,
     ol: (props) => <ul className="m-6 list-decimal" {...props} />,
     p: (props) => <p className="indent-8 mt-2 h-auto" {...props} />,
-    Pre: (props) => {
+    pre: (props) => {
       const language = props.children.props.className?.replace("language-", "");
       const code = props.children.props.children;
       const [copied, setCopied] = useState(false);
       const codeRef = useRef(null);
 
-      useEffect(() => {
-        Prism.highlightElement(codeRef.current);
-      }, []);
+      useCodeHighlighting(codeRef);
 
       return (
         <>
@@ -138,19 +142,19 @@ export default function BlogPost({ frontmatter, mdxSource }) {
 
   return (
     <main className="w-full flex flex-col items-center mb-16">
-      <div className="w-2/4 flex flex-col mt-16 pt-5">
-        <div className="flex flex-row items-center mb-5 justify-start max-w-md">
+      <div className="w-2/4 flex flex-col mt-16 pt-5 max-md:w-11/12 max-md:pt-9">
+        <div className="flex flex-row items-center mb-5 justify-start max-w-md max-md:text-sm">
           <Link href="/" className="hover:text-orange-500 line-clamp-1">
             Home
           </Link>
-          <BiChevronsRight className="h-6 w-16" />
+          <BiChevronsRight className="h-6 w-16 max-md:w-7" />
           <Link
             href={`/${pathParts[0]}`}
             className="hover:text-orange-500 line-clamp-1"
           >
             {pathParts[0]}
           </Link>
-          <BiChevronsRight className="h-6 w-16" />
+          <BiChevronsRight className="h-6 w-16 max-md:w-7" />
           <Link
             href={`/${pathParts[0]}/${pathParts[1]}`}
             className="hover:text-orange-500 line-clamp-1"
@@ -159,10 +163,12 @@ export default function BlogPost({ frontmatter, mdxSource }) {
           </Link>
         </div>
         <div>
-          <h1 className="text-6xl">{frontmatter.title}</h1>
-          <h2 className="text-3xl mt-2">{frontmatter.subtitle}</h2>
+          <h1 className="text-6xl max-md:text-4xl">{frontmatter.title}</h1>
+          <h2 className="text-3xl mt-2 max-md:text-xl">
+            {frontmatter.subtitle}
+          </h2>
           <div className="flex flex-row m-2 items-center">
-            <div className="w-28 h-28 rounded-full overflow-hidden m-3">
+            <div className="w-28 h-28 rounded-full overflow-hidden m-3 max-md:w-16 max-md:h-16">
               <img
                 src={frontmatter.author_image}
                 alt={frontmatter.author}
@@ -170,8 +176,10 @@ export default function BlogPost({ frontmatter, mdxSource }) {
               />
             </div>
             <div>
-              <h2 className="m-2 ml-0 text-2xl">{frontmatter.author}</h2>
-              <h2 className="m-2 ml-0 text-l">{frontmatter.date}</h2>
+              <h2 className="m-2 ml-0 text-2xl max-md:text-lg">
+                {frontmatter.author}
+              </h2>
+              <h2 className="m-2 ml-0">{frontmatter.date}</h2>
             </div>
           </div>
           <div className="flex flex-row items-start p-5">
