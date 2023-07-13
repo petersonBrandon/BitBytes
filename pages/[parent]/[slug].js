@@ -58,6 +58,71 @@ export async function getStaticProps({ params }) {
   };
 }
 
+const useCodeHighlighting = (codeRef) => {
+  useEffect(() => {
+    Prism.highlightElement(codeRef.current);
+  }, []);
+};
+
+const PreComponent = (props) => {
+  const language = props.children.props.className?.replace("language-", "");
+  const code = props.children.props.children;
+  const [copied, setCopied] = useState(false);
+  const codeRef = useRef(null);
+
+  useCodeHighlighting(codeRef);
+
+  return (
+    <>
+      <Head>
+        <title>{props.frontmatter.title}</title>
+        <meta name="description" content={props.frontmatter.title} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon_new.ico" />
+      </Head>
+      <div className="mt-5 mb-5">
+        <div className="flex items-center justify-between bg-gray-800 p-3 rounded-t-lg border-2 border-white border-b-0">
+          <span className="text-white font-semibold">
+            {language ? language : "Code Block"}
+          </span>
+          <button
+            className="hover:bg-cyan-600 text-white font-semibold py-2 px-2 rounded"
+            onClick={() => {
+              const codeToCopy = props.children.props.children;
+
+              const textarea = document.createElement("textarea");
+              textarea.value = codeToCopy;
+
+              document.body.appendChild(textarea);
+
+              textarea.select();
+              document.execCommand("copy");
+
+              document.body.removeChild(textarea);
+              setCopied(true);
+              setTimeout(() => {
+                setCopied(false);
+              }, 5000);
+            }}
+          >
+            {!copied ? (
+              <BsFillClipboardFill />
+            ) : (
+              <BsFillClipboardCheckFill className="text-lime-500" />
+            )}
+          </button>
+        </div>
+        <pre
+          className={`language-${language} bg-slate-900 w-full !border-2 !border-white !border-t-0 rounded-b-lg p-3 font-mono !m-0`}
+          ref={codeRef}
+        >
+          <code>{code}</code>
+        </pre>
+      </div>
+    </>
+  );
+};
+
 export default function BlogPost({ frontmatter, mdxSource }) {
   const useCodeHighlighting = (codeRef) => {
     useEffect(() => {
@@ -70,67 +135,7 @@ export default function BlogPost({ frontmatter, mdxSource }) {
     ul: (props) => <ul className="m-6 list-disc" {...props} />,
     ol: (props) => <ul className="m-6 list-decimal" {...props} />,
     p: (props) => <p className="indent-8 mt-2 h-auto" {...props} />,
-    pre: (props) => {
-      const language = props.children.props.className?.replace("language-", "");
-      const code = props.children.props.children;
-      const [copied, setCopied] = useState(false);
-      const codeRef = useRef(null);
-
-      useCodeHighlighting(codeRef);
-
-      return (
-        <>
-          <Head>
-            <title>{frontmatter.title}</title>
-            <meta name="description" content={frontmatter.title} />
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1"
-            />
-            <link rel="icon" href="/favicon_new.ico" />
-          </Head>
-          <div className="mt-5 mb-5">
-            <div className="flex items-center justify-between bg-gray-800 p-3 rounded-t-lg border-2 border-white border-b-0">
-              <span className="text-white font-semibold">
-                {language ? language : "Code Block"}
-              </span>
-              <button
-                className="hover:bg-cyan-600 text-white font-semibold py-2 px-2 rounded"
-                onClick={() => {
-                  const codeToCopy = props.children.props.children;
-
-                  const textarea = document.createElement("textarea");
-                  textarea.value = codeToCopy;
-
-                  document.body.appendChild(textarea);
-
-                  textarea.select();
-                  document.execCommand("copy");
-
-                  document.body.removeChild(textarea);
-                  setCopied(true);
-                  setTimeout(() => {
-                    setCopied(false);
-                  }, 5000);
-                }}
-              >
-                {!copied ? (
-                  <BsFillClipboardFill />
-                ) : (
-                  <BsFillClipboardCheckFill className="text-lime-500" />
-                )}
-              </button>
-            </div>
-            <pre
-              className={`language-${language} bg-slate-900 w-full !border-2 !border-white !border-t-0 rounded-b-lg p-3 font-mono !m-0`}
-              ref={codeRef}
-            >
-              <code>{code}</code>
-            </pre>
-          </div>
-        </>
-      );
-    },
+    pre: (props) => <PreComponent {...props} frontmatter={frontmatter} />,
   };
 
   const { asPath, pathname } = useRouter();
