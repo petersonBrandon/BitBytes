@@ -165,6 +165,14 @@ export default function BlogPost({ frontmatter, mdxSource }) {
           content="BitBytes Developer Blog"
         />
         <meta name="author" content={frontmatter.author} />
+        <meta name="twitter:card" content="summary" />
+        {/* <meta name="twitter:site" content="@DevBrandon318" /> */}
+        <meta name="twitter:title" content={frontmatter.title} />
+        <meta name="twitter:description" content="BitBytes Developer Blog" />
+        <meta
+          name="twitter:image"
+          content={frontmatter.image != undefined ? frontmatter.image : ""}
+        />
       </Head>
       <main className="w-full flex flex-col items-center mb-16">
         <div className="mt-16 left-0 h-3 fixed w-screen flex flex-col justify-start items-start max-lg:mt-20">

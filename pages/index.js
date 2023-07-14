@@ -37,6 +37,14 @@ export default function Home({ articles, questions }) {
           content="BitBytes Developer Blog"
         /> */}
         <meta name="author" content="Brandon Peterson" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@DevBrandon318" />
+        <meta name="twitter:title" content="BitBytes Developer Blog" />
+        {/* <meta name="twitter:description" content="View the album on Flickr." /> */}
+        <meta
+          name="twitter:image"
+          content="https://blog.brandonpeterson.dev/Logo Solid Wide.png"
+        />
       </Head>
       <main className="w-full flex flex-col items-center mb-16 min-h-screen">
         <div className="w-4/5 flex flex-col items-center mt-16 pt-5 max-lg:w-11/12">
