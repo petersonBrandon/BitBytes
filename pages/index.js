@@ -140,7 +140,7 @@ export default function Home({ articles, questions }) {
 }
 
 export async function getStaticProps() {
-  await generateRssFeed();
+  // await generateRssFeed();
 
   const articlesDirectory = path.join(process.cwd(), "posts", "Articles");
   const questionsDirectory = path.join(process.cwd(), "posts", "Questions");
