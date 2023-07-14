@@ -15,7 +15,7 @@ const Footer = () => {
             className="w-14 mr-4"
           />
           <p className="max-lg:mr-1">
-            © 2023 by ByteBits. All rights reserved.
+            © 2023 by BitBytes. All rights reserved.
           </p>
         </div>
         <p className="max-lg:text-right max-lg:ml-1">
