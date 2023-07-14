@@ -5,6 +5,7 @@ import matter from "gray-matter";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Tag } from "@/components";
+import { HiOutlineQuestionMarkCircle } from "react-icons/hi";
 
 export default function Questions({ posts }) {
   return (
@@ -18,7 +19,10 @@ export default function Questions({ posts }) {
       <main className="w-full flex flex-col items-center mb-16 min-h-screen">
         <div className="w-4/5 flex flex-col items-center mt-16 pt-5 max-lg:pt-7">
           <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12">
-            <h2>All Questions</h2>
+            <h2 className="flex flex-row items-center justify-center mr-3">
+              <HiOutlineQuestionMarkCircle className="mr-4 max-lg:w-9 max-lg:h-auto" />
+              All Questions
+            </h2>
           </div>
           {posts.length <= 0 ? (
             <h3 className="text-slate-400">No Questions Currently</h3>
