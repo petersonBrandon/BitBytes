@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import Prism from "prismjs";
 import "prismjs/components/prism-jsx.min";
 import Head from "next/head";
+import { useScroll, motion } from "framer-motion";
 
 export async function getStaticPaths() {
   const postsDirectory = path.join(process.cwd(), "posts");
@@ -121,12 +122,6 @@ const PreComponent = (props) => {
 };
 
 export default function BlogPost({ frontmatter, mdxSource }) {
-  const useCodeHighlighting = (codeRef) => {
-    useEffect(() => {
-      Prism.highlightElement(codeRef.current);
-    }, []);
-  };
-
   const components = {
     h2: (props) => <h1 className="text-4xl mt-5 mb-2 font-bold" {...props} />,
     h3: (props) => <h1 className="text-xl mt-5 mb-2 font-bold" {...props} />,
@@ -149,6 +144,7 @@ export default function BlogPost({ frontmatter, mdxSource }) {
   };
 
   const { asPath, pathname } = useRouter();
+  const { scrollYProgress } = useScroll();
 
   const pathParts = asPath
     .split("/")
@@ -157,7 +153,13 @@ export default function BlogPost({ frontmatter, mdxSource }) {
 
   return (
     <main className="w-full flex flex-col items-center mb-16">
-      <div className="w-2/4 flex flex-col mt-16 pt-5 max-lg:w-11/12 max-lg:pt-9">
+      <div className="mt-16 left-0 h-3 fixed w-screen flex flex-col justify-start items-start max-lg:mt-20">
+        <motion.div
+          style={{ scaleX: scrollYProgress }}
+          className="w-full h-full bg-gradient-to-r from-orange-400 to-orange-600 origin-left"
+        />
+      </div>
+      <div className="w-2/4 flex flex-col mt-20 pt-5 max-lg:w-11/12 max-lg:pt-9">
         <div className="w-full flex flex-row items-center mb-5 justify-start max-lg:text-sm">
           <Link
             href="/"
