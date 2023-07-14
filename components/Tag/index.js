@@ -4,6 +4,7 @@ const WEB_DEV = { title: "WEB DEV", color: "bg-slate-600" };
 const JAVASCRIPT = { title: "JAVASCRIPT", color: "bg-amber-300 text-black" };
 const REACT_JS = { title: "REACT.JS", color: "bg-sky-500" };
 const REACT_NATIVE = { title: "REACT NATIVE", color: "bg-sky-600" };
+const NEXT_JS = { title: "NEXT.JS", color: "bg-black" };
 
 const Tag = (props) => {
   const [tagColor, setTagColor] = useState();
@@ -21,6 +22,9 @@ const Tag = (props) => {
         break;
       case REACT_NATIVE.title:
         setTagColor(REACT_NATIVE.color);
+        break;
+      case NEXT_JS.title:
+        setTagColor(NEXT_JS.color);
         break;
 
       default:
