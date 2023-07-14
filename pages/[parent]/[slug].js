@@ -152,7 +152,7 @@ export default function BlogPost({ frontmatter, mdxSource }) {
     ),
     code: (props) => (
       <code
-        className="bg-slate-900 p-1 pl-2 pr-2 rounded-lg border-2 border-white"
+        className="bg-slate-900 p-1 pl-2 pr-2 rounded-lg border-2 border-white max-lg:text-xs"
         {...props}
       />
     ),
