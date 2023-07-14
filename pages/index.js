@@ -11,6 +11,7 @@ import {
   HiOutlineNewspaper,
   HiOutlineQuestionMarkCircle,
 } from "react-icons/hi";
+import generateRssFeed from "@/utils/generateRSSFeed";
 
 export default function Home({ articles, questions }) {
   return (
@@ -139,6 +140,8 @@ export default function Home({ articles, questions }) {
 }
 
 export async function getStaticProps() {
+  await generateRssFeed();
+
   const articlesDirectory = path.join(process.cwd(), "posts", "Articles");
   const questionsDirectory = path.join(process.cwd(), "posts", "Questions");
 

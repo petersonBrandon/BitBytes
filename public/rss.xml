@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>BitBytes Developer Blog</title>
+        <link>localhost:3000</link>
+        <description></description>
+        <lastBuildDate>Fri, 14 Jul 2023 13:45:15 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Feed for Node.js</generator>
+        <image>
+            <title>BitBytes Developer Blog</title>
+            <url>localhost:3000/logo.png</url>
+            <link>localhost:3000</link>
+        </image>
+        <copyright>All rights reserved 2023, Ibas</copyright>
+        <item>
+            <title><![CDATA[The Power of NEXT.js]]></title>
+            <link>localhost:3000/Articles/The Power of NEXT.js</link>
+            <guid>localhost:3000/Articles/The Power of NEXT.js</guid>
+            <pubDate>Fri, 14 Jul 2023 05:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[The Evolution of JavaScript]]></title>
+            <link>localhost:3000/Articles/The Evolution of JavaScript</link>
+            <guid>localhost:3000/Articles/The Evolution of JavaScript</guid>
+            <pubDate>Wed, 12 Jul 2023 05:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
