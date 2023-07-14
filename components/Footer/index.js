@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -5,7 +6,18 @@ const Footer = () => {
   return (
     <div className="w-full bg-gray-700 shadow-inner flex flex-col items-center p-9 max-lg:p-3 justify-center">
       <div className="w-4/5 flex flex-row justify-between max-lg:w-11/12 items-center max-lg:text-sm">
-        <p className="max-lg:mr-1">© 2023 by ByteBits. All rights reserved.</p>
+        <div className="flex flex-row justify-center items-center">
+          <Image
+            src={"/ByteBits Icon.png"}
+            alt="Logo Icon"
+            width={100}
+            height={100}
+            className="w-14 mr-4"
+          />
+          <p className="max-lg:mr-1">
+            © 2023 by ByteBits. All rights reserved.
+          </p>
+        </div>
         <p className="max-lg:text-right max-lg:ml-1">
           Website Crafted by{" "}
           <Link
