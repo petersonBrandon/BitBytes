@@ -200,6 +200,11 @@ export default function BlogPost({ frontmatter, mdxSource }) {
                 {frontmatter.author}
               </h2>
               <h2 className="m-2 ml-0">{`Last updated ${frontmatter.date}`}</h2>
+              {frontmatter.read_time != undefined ? (
+                <h3>{`${frontmatter.read_time} read`}</h3>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
           <div className="flex flex-row items-start p-5">
