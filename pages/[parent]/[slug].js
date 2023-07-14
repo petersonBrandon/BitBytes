@@ -152,22 +152,18 @@ export default function BlogPost({ frontmatter, mdxSource }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon_new.ico" />
 
-        <meta
-          name="title"
-          property="og:title"
-          content="BitBytes Developer Blog"
-        />
+        <meta name="title" property="og:title" content={frontmatter.title} />
         <meta property="og:type" content="Website" />
         <meta
           name="image"
           property="og:image"
           content={frontmatter.image != undefined ? frontmatter.image : ""}
         />
-        {/* <meta
+        <meta
           name="description"
           property="og:description"
           content="BitBytes Developer Blog"
-        /> */}
+        />
         <meta name="author" content={frontmatter.author} />
       </Head>
       <main className="w-full flex flex-col items-center mb-16">
