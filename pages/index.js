@@ -119,7 +119,7 @@ export default function Home({ articles, questions }) {
                   boxShadow: " 0px 0px 18px 4px rgba(237, 231, 227, 0.5)",
                 }}
                 key={post.slug}
-                className="w-2/4 border-2 border-white m-4 rounded-lg max-lg:w-full"
+                className="w-2/4 border-2 border-white m-4 rounded-lg max-lg:w-full overflow-hidden"
               >
                 <Link href={`/${post.parent}/${post.slug}`}>
                   {post.image != null ? (
