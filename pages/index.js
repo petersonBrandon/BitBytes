@@ -18,11 +18,25 @@ export default function Home({ articles, questions }) {
     <>
       <Head>
         <title>Home</title>
-        <meta name="description" content="Home" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon_new.ico" />
-        <meta property="og:title" content="BitBytes Developer Blog" />
-        <meta name="iamge" property="og:image" content="/BitBytes Logo.png" />
+        <meta
+          name="title"
+          property="og:title"
+          content="BitByte Developer Blog"
+        />
+        <meta property="og:type" content="Website" />
+        <meta
+          name="image"
+          property="og:image"
+          content="../public/Logo Solid Wide.png"
+        />
+        {/* <meta
+          name="description"
+          property="og:description"
+          content=""
+        /> */}
+        <meta name="author" content="Brandon Peterson" />
       </Head>
       <main className="w-full flex flex-col items-center mb-16 min-h-screen">
         <div className="w-4/5 flex flex-col items-center mt-16 pt-5 max-lg:w-11/12">
