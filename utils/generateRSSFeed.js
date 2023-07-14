@@ -35,7 +35,7 @@ const getArticlesForRSS = async () => {
 
 export default async function generateRssFeed() {
   const allPosts = await getArticlesForRSS();
-  const site_url = "localhost:3000";
+  const site_url = "blog.brandonpeterson.dev";
   const date = new Date();
   const author = {
     name: "Brandon Peterson",
