@@ -16,7 +16,7 @@ const ShareBtns = () => {
     .split("/")
     .filter((part) => part.trim() !== "")
     .map((part) => decodeURIComponent(part));
-  const url = `blog.brandonpeterson.dev${asPath}`;
+  const url = `https://blog.brandonpeterson.dev${asPath}`;
   return (
     <div className="border-2 border-white rounded-lg p-5 mt-20 w-full text-center">
       <h4 className="text-2xl text-left ml-2">
