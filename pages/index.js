@@ -11,7 +11,7 @@ import {
   HiOutlineNewspaper,
   HiOutlineQuestionMarkCircle,
 } from "react-icons/hi";
-import generateRssFeed from "@/utils/generateRSSFeed";
+// import generateRssFeed from "@/utils/generateRSSFeed";
 
 export default function Home({ articles, questions }) {
   return (
