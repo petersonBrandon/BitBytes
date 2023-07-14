@@ -156,7 +156,7 @@ export default function BlogPost({ frontmatter, mdxSource }) {
       <div className="mt-16 left-0 h-3 fixed w-screen flex flex-col justify-start items-start max-lg:mt-20">
         <motion.div
           style={{ scaleX: scrollYProgress }}
-          className="w-full h-full bg-gradient-to-r from-orange-400 to-orange-600 origin-left"
+          className="w-full h-full bg-gradient-to-r to-orange-600 from-amber-600 origin-left"
         />
       </div>
       <div className="w-2/4 flex flex-col mt-20 pt-5 max-lg:w-11/12 max-lg:pt-9">
