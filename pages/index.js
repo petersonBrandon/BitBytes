@@ -91,6 +91,16 @@ export default function Home({ articles, questions }) {
                   ) : (
                     <></>
                   )}
+                  {post.image_credits_link != null ? (
+                    <div
+                      className="w-full pl-5 pr-5 text-right text-xs pt-1"
+                      onClick={() => window.open(post.image_credits_link)}
+                    >
+                      {post.image_credits_text}
+                    </div>
+                  ) : (
+                    <></>
+                  )}
                   <section className="flex flex-row justify-between items-start p-5 pb-0 max-lg:flex-col-reverse">
                     <div>
                       <h1 className="text-3xl mr-4">{post.title}</h1>
@@ -141,10 +151,20 @@ export default function Home({ articles, questions }) {
                   ) : (
                     <></>
                   )}
+                  {post.image_credits_link != null ? (
+                    <div
+                      className="w-full pl-5 pr-5 text-right text-xs pt-1"
+                      onClick={() => window.open(post.image_credits_link)}
+                    >
+                      {post.image_credits_text}
+                    </div>
+                  ) : (
+                    <></>
+                  )}
                   <section className="flex flex-row justify-between items-start p-5 pb-0 max-lg:flex-col-reverse">
                     <div>
                       <h1 className="text-3xl mr-4">{post.title}</h1>
-                      <h2 className="text-xl">{post.subtitle}</h2>
+                      <h2 className="text-xl mr-4">{post.subtitle}</h2>
                     </div>
                     <div>{post.date}</div>
                   </section>
@@ -188,7 +208,11 @@ export async function getStaticProps() {
       date: data.date,
       author: data.author,
       author_image: data.author_image,
-      image: data.image !== undefined ? data.image : null,
+      image: data.image != undefined ? data.image : null,
+      image_credits_text:
+        data.image_credits_text != undefined ? data.image_credits_text : null,
+      image_credits_link:
+        data.image_credits_link != undefined ? data.image_credits_link : null,
     });
   }
 
@@ -209,6 +233,10 @@ export async function getStaticProps() {
       author: data.author,
       author_image: data.author_image,
       image: data.image != undefined ? data.image : null,
+      image_credits_text:
+        data.image_credits_text != undefined ? data.image_credits_text : null,
+      image_credits_link:
+        data.image_credits_link != undefined ? data.image_credits_link : null,
     });
   }
 

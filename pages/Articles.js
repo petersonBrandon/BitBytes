@@ -44,6 +44,16 @@ export default function Articles({ posts }) {
                 ) : (
                   <></>
                 )}
+                {post.image_credits_link != null ? (
+                  <div
+                    className="w-full pl-5 pr-5 text-right text-xs pt-1"
+                    onClick={() => window.open(post.image_credits_link)}
+                  >
+                    {post.image_credits_text}
+                  </div>
+                ) : (
+                  <></>
+                )}
                 <section className="flex flex-row justify-between items-start p-5 pb-0 max-lg:flex-col-reverse">
                   <div>
                     <h1 className="text-3xl mr-4">{post.title}</h1>
@@ -56,16 +66,6 @@ export default function Articles({ posts }) {
                     <Tag title={tag} key={tag} />
                   ))}
                 </section>
-                {/* <div className="flex flex-row items-center">
-                  <div className="w-12 h-12 rounded-full overflow-hidden m-3">
-                    <img
-                      src={post.author_image}
-                      alt={post.author}
-                      className="object-cover h-full"
-                    />
-                  </div>
-                  <div>{post.author}</div>
-                </div> */}
               </Link>
             </motion.div>
           ))}
@@ -97,6 +97,10 @@ export async function getStaticProps() {
       author: data.author,
       author_image: data.author_image,
       image: data.image !== undefined ? data.image : null,
+      image_credits_text:
+        data.image_credits_text != undefined ? data.image_credits_text : null,
+      image_credits_link:
+        data.image_credits_link != undefined ? data.image_credits_link : null,
     });
   }
 

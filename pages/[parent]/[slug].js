@@ -125,7 +125,21 @@ export default function BlogPost({ frontmatter, mdxSource }) {
     li: (props) => <li className="mt-2 h-auto text-xl" {...props} />,
     p: (props) => <p className="mt-2 h-auto text-xl" {...props} />,
     pre: (props) => <PreComponent {...props} frontmatter={frontmatter} />,
-    img: (props) => <img className="mb-10" {...props} />,
+    img: (props) => (
+      <div className="mb-10">
+        <img {...props} />
+        {frontmatter.image_credits_link != null ? (
+          <Link
+            className="w-full text-right text-xs pt-1"
+            href={frontmatter.image_credits_link}
+          >
+            {frontmatter.image_credits_text}
+          </Link>
+        ) : (
+          <></>
+        )}
+      </div>
+    ),
     strong: (props) => (
       <strong className="text-2xl text-orange-500" {...props} />
     ),
