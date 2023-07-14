@@ -23,7 +23,7 @@ export default function Home({ articles, questions }) {
         <meta
           name="title"
           property="og:title"
-          content="BitByte Developer Blog"
+          content="BitBytes Developer Blog"
         />
         <meta property="og:type" content="Website" />
         <meta
@@ -34,7 +34,7 @@ export default function Home({ articles, questions }) {
         {/* <meta
           name="description"
           property="og:description"
-          content=""
+          content="BitBytes Developer Blog"
         /> */}
         <meta name="author" content="Brandon Peterson" />
       </Head>

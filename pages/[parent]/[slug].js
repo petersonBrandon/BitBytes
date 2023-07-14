@@ -74,17 +74,28 @@ const PreComponent = (props) => {
     <>
       <Head>
         <title>{props.frontmatter.title}</title>
-        <meta name="description" content={props.frontmatter.title} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon_new.ico" />
 
-        <meta property="og:title" content={props.frontmatter.title} />
         <meta
+          name="title"
+          property="og:title"
+          content="BitBytes Developer Blog"
+        />
+        <meta property="og:type" content="Website" />
+        <meta
+          name="image"
           property="og:image"
           content={
             props.frontmatter.image != undefined ? props.frontmatter.image : ""
           }
         />
+        {/* <meta
+          name="description"
+          property="og:description"
+          content="BitBytes Developer Blog"
+        /> */}
+        <meta name="author" content={props.frontmatter.author} />
       </Head>
       <div className="mt-5 mb-5">
         <div className="flex items-center justify-between bg-gray-800 p-3 rounded-t-lg border-2 border-white border-b-0">
