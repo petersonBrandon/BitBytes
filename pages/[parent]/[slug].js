@@ -117,8 +117,9 @@ const PreComponent = (props) => {
 
 export default function BlogPost({ frontmatter, mdxSource }) {
   const components = {
-    h2: (props) => <h1 className="text-4xl mt-5 mb-2 font-bold" {...props} />,
-    h3: (props) => <h1 className="text-xl mt-5 mb-2 font-bold" {...props} />,
+    h2: (props) => <h2 className="text-4xl mt-16 mb-2 font-bold" {...props} />,
+    h3: (props) => <h3 className="text-2xl mt-10 mb-2 font-bold" {...props} />,
+    h4: (props) => <h4 className="text-xl mt-5 mb-2 font-bold" {...props} />,
     ul: (props) => <ul className="m-6 list-disc" {...props} />,
     ol: (props) => <ol className="m-6 list-decimal" {...props} />,
     li: (props) => <li className="mt-2 h-auto text-xl" {...props} />,
@@ -132,6 +133,12 @@ export default function BlogPost({ frontmatter, mdxSource }) {
     a: (props) => (
       <a
         className="underline decoration-dashed hover:text-orange-500"
+        {...props}
+      />
+    ),
+    code: (props) => (
+      <code
+        className="bg-slate-900 p-1 pl-2 pr-2 rounded-lg border-2 border-white"
         {...props}
       />
     ),
