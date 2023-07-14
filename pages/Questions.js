@@ -49,7 +49,7 @@ export default function Questions({ posts }) {
                   )}
                   <section className="flex flex-row justify-between items-start p-5 pb-0 max-lg:flex-col-reverse">
                     <div>
-                      <h1 className="text-3xl">{post.title}</h1>
+                      <h1 className="text-3xl mr-4">{post.title}</h1>
                       {post.subtitle != null ? (
                         <h2 className="text-xl">{post.subtitle}</h2>
                       ) : (

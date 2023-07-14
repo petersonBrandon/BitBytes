@@ -30,7 +30,7 @@ export default function Articles({ posts }) {
                 boxShadow: " 0px 0px 18px 4px rgba(237, 231, 227, 0.5)",
               }}
               key={post.slug}
-              className="w-2/4 border-2 border-white m-4 rounded-lg max-lg:w-full"
+              className="w-2/4 border-2 border-white m-4 rounded-lg max-lg:w-full overflow-hidden"
             >
               <Link href={`/${post.parent}/${post.slug}`}>
                 {post.image != null ? (
@@ -46,8 +46,8 @@ export default function Articles({ posts }) {
                 )}
                 <section className="flex flex-row justify-between items-start p-5 pb-0 max-lg:flex-col-reverse">
                   <div>
-                    <h1 className="text-3xl">{post.title}</h1>
-                    <h2 className="text-xl">{post.subtitle}</h2>
+                    <h1 className="text-3xl mr-4">{post.title}</h1>
+                    <h2 className="text-xl mr-4">{post.subtitle}</h2>
                   </div>
                   <div>{post.date}</div>
                 </section>
