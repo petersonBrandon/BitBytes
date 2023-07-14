@@ -39,8 +39,6 @@ export default async function generateRssFeed() {
   const date = new Date();
   const author = {
     name: "Brandon Peterson",
-    // email: "sreetam@sreetamdas.com",
-    // link: "https://twitter.com/_SreetamDas",
   };
 
   const feedOptions = {
