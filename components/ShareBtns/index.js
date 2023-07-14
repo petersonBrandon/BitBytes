@@ -12,7 +12,11 @@ import { BsFacebook, BsTwitter, BsLinkedin, BsReddit } from "react-icons/bs";
 
 const ShareBtns = () => {
   const { asPath, pathname } = useRouter();
-  const url = `blog.brandonpeterson.dev${asPath}`;
+  const route = asPath
+    .split("/")
+    .filter((part) => part.trim() !== "")
+    .map((part) => decodeURIComponent(part));
+  const url = `blog.brandonpeterson.dev/${route[0]}/${route[1]}`;
   return (
     <div className="border-2 border-white rounded-lg p-5 mt-20 w-full text-center">
       <h4 className="text-2xl text-left ml-2">
@@ -29,7 +33,7 @@ const ShareBtns = () => {
             <div className="ml-2">Facebook</div>
           </motion.div>
         </FacebookShareButton>
-        <LinkedinShareButton url={url} className="w-full">
+        <LinkedinShareButton url={url} title={route[1]} className="w-full">
           <motion.div
             whileHover={{ scale: 1.1 }}
             className="bg-cyan-600 p-2 flex flex-row items-center rounded-lg ml-2 mr-2  justify-center max-lg:m-2"
