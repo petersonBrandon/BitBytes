@@ -29,7 +29,7 @@ export default function Home({ articles, questions }) {
         <meta
           name="image"
           property="og:image"
-          content="blog.brandonpeterson.dev/Logo Solid Wide.png"
+          content="https://blog.brandonpeterson.dev/Logo Solid Wide.png"
         />
         {/* <meta
           name="description"
