@@ -132,11 +132,19 @@ export default function BlogPost({ frontmatter, mdxSource }) {
     h3: (props) => <h1 className="text-xl mt-5 mb-2 font-bold" {...props} />,
     ul: (props) => <ul className="m-6 list-disc" {...props} />,
     ol: (props) => <ol className="m-6 list-decimal" {...props} />,
+    li: (props) => <li className="mt-2 h-auto text-xl" {...props} />,
     p: (props) => <p className="mt-2 h-auto text-xl" {...props} />,
     pre: (props) => <PreComponent {...props} frontmatter={frontmatter} />,
     img: (props) => <img className="mb-10" {...props} />,
     strong: (props) => (
       <strong className="text-2xl text-orange-500" {...props} />
+    ),
+    hr: (props) => <hr className="mt-10" {...props} />,
+    a: (props) => (
+      <a
+        className="underline decoration-dashed hover:text-orange-500"
+        {...props}
+      />
     ),
   };
 
