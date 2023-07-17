@@ -1,0 +1,61 @@
+---
+title: What is a REST API?
+tags: [Web Dev]
+date: 7/17/2023
+author: Brandon Peterson
+author_image: https://firebasestorage.googleapis.com/v0/b/level-up-gt-479b6.appspot.com/o/Brandon.webp?alt=media&token=f7cd367f-40c0-4237-87f2-b8ec11dcf411
+read_time: 3-4 min
+image: https://blog.brandonpeterson.dev/FreePik/API%20Generic.jpg
+image_credits_text: Image by Freepik
+image_credits_link: https://www.freepik.com/free-vector/gradient-api-infographic_25225785.htm#query=rest%20api&position=30&from_view=search&track=ais
+---
+
+![API Graphic](https://blog.brandonpeterson.dev/FreePik/API%20Generic.jpg)
+
+REST (Representational State Transfer) API (Application Programming Interface) is a set of rules and conventions for building and interacting with web services. It is a widely adopted architectural style for designing networked applications and has become the standard for developing APIs over the HTTP protocol.
+
+## Understanding REST
+
+REST is based on a few fundamental principles that enable the design of scalable and interoperable web services. Let's explore these principles:
+
+### 1. Stateless Communication
+
+In a RESTful API, the server does not maintain any client state between requests. Each request from the client contains all the necessary information for the server to understand and process it. This statelessness allows for scalability and reliability, as servers can handle requests independently without relying on previous interactions.
+
+### 2. Resource-Based Architecture
+
+REST APIs are built around resources, which represent entities or objects. These resources are identified by unique URLs, known as Uniform Resource Identifiers (URIs). Clients interact with these resources using standard HTTP methods like GET, POST, PUT, DELETE, etc. For example, to retrieve information about a user, you would send a GET request to `/users/{id}`.
+
+### 3. Representation of Resources
+
+Resources in a REST API are represented in a format that can be easily consumed by clients. Typically, these formats include JSON (JavaScript Object Notation) or XML (eXtensible Markup Language). The server sends a representation of the requested resource back to the client in the response body. This representation can include data, metadata, or even hypermedia links for further navigation.
+
+### 4. Stateless Interactions
+
+Each interaction between a client and a server in a REST API should be self-contained. The server should not rely on any prior requests or hold any client-specific data between requests. This allows for better scalability and fault tolerance, as servers can handle requests from different clients simultaneously.
+
+### 5. Uniform Interface
+
+REST APIs follow a uniform interface, which defines a standard set of HTTP methods and status codes. The common HTTP methods used in REST are:
+
+- **GET**: Retrieves a resource or a collection of resources.
+- **POST**: Creates a new resource.
+- **PUT**: Updates an existing resource.
+- **DELETE**: Removes a resource.
+- **PATCH**: Partially updates a resource.
+
+These methods provide a consistent way for clients to interact with resources and perform various operations on them.
+
+## Benefits of REST APIs
+
+REST APIs offer several advantages that make them popular in web development:
+
+- **Simplicity**: REST APIs are straightforward to understand and use, thanks to their simplicity and uniformity.
+- **Scalability**: The stateless nature of REST allows servers to scale horizontally by adding more instances to handle increasing loads.
+- **Interoperability**: REST APIs are platform-agnostic and can be consumed by clients built using different programming languages or frameworks.
+- **Caching**: REST APIs can take advantage of caching mechanisms, improving performance and reducing server load.
+- **Flexibility**: REST allows for flexible data formats, and the decoupled nature of the client-server relationship enables independent evolution of both components.
+
+## Conclusion
+
+REST API is a widely adopted architectural style for designing web services. Its principles of stateless communication, resource-based architecture, and uniform interface make it an effective approach for building scalable, interoperable, and reliable APIs. By following REST's best practices, developers can create robust and easily consumable APIs that empower client applications to interact with server resources efficiently.
