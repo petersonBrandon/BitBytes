@@ -6,6 +6,7 @@ const REACT_JS = { title: "REACT.JS", color: "bg-sky-500" };
 const REACT_NATIVE = { title: "REACT NATIVE", color: "bg-sky-600" };
 const NEXT_JS = { title: "NEXT.JS", color: "bg-black" };
 const HTML = { title: "HTML", color: "bg-orange-600" };
+const TAILWIND = { title: "TAILWIND", color: "bg-cyan-500" };
 
 const Tag = (props) => {
   const [tagColor, setTagColor] = useState();
@@ -30,13 +31,16 @@ const Tag = (props) => {
       case HTML.title:
         setTagColor(HTML.color);
         break;
+      case TAILWIND.title:
+        setTagColor(TAILWIND.color);
+        break;
 
       default:
         setTagColor(WEB_DEV.color);
         break;
     }
   }, [props.title]);
-  return <div className={`p-2 ${tagColor} m-1 rounded-lg `}>{props.title}</div>;
+  return <div className={`p-2 ${tagColor} m-1 rounded-lg`}>{props.title}</div>;
 };
 
 export default Tag;
