@@ -146,6 +146,7 @@ export default function BlogPost({ frontmatter, mdxSource }) {
     hr: (props) => <hr className="mt-10" {...props} />,
     a: (props) => (
       <a
+        target="_blank"
         className="underline decoration-dashed hover:text-orange-500"
         {...props}
       />
