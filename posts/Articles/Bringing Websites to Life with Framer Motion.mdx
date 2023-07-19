@@ -1,0 +1,131 @@
+---
+title: Bringing Websites to Life with Framer Motion
+subtitle: Simplifying Web Animation
+tags: [Web Dev, React.js]
+date: 7/19/2023
+author: Brandon Peterson
+author_image: https://firebasestorage.googleapis.com/v0/b/level-up-gt-479b6.appspot.com/o/Brandon.webp?alt=media&token=f7cd367f-40c0-4237-87f2-b8ec11dcf411
+read_time: 5 min
+image: https://blog.brandonpeterson.dev/FreePik/FramerMotion.png
+---
+
+![Framer Motion](https://blog.brandonpeterson.dev/FreePik/FramerMotion.png)
+
+In today's digital age, websites have become more than just static pages on a screen. Users now expect interactive and dynamic experiences that engage and captivate their attention. To achieve this, web developers and designers have turned to various animation libraries and frameworks. One such powerful tool that I personally use is Framer Motion, a popular open-source animation library for React. In this article, we'll explore how Framer Motion can breathe life into websites and make animating significantly easier.
+
+## What is Framer Motion?
+
+Framer Motion is a feature-rich animation library designed to work seamlessly with React applications. It empowers developers to create stunning animations and intuitive user interactions effortlessly. The library's focus on declarative syntax and animation hooks makes it both user-friendly and efficient.
+
+### Getting Started with Framer Motion
+
+Before diving into the benefits of Framer Motion, let's quickly set up a basic example to demonstrate its usage:
+
+1. First, ensure you have Node.js and npm installed.
+2. Create a new React project using Create React App:
+
+```bash
+npx create-react-app my-framer-motion-app
+cd my-framer-motion-app
+```
+
+3. Install Framer Motion:
+
+```bash
+npm install framer-motion
+```
+
+4. Now, you can start using Framer Motion in your components. For instance, let's create a simple component that animates a button when clicked:
+
+```jsx
+import React from "react";
+import { motion } from "framer-motion";
+
+const AnimatedButton = () => {
+  return (
+    <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+      Click Me!
+    </motion.button>
+  );
+};
+
+export default AnimatedButton;
+```
+
+## Bringing Websites to Life with Framer Motion
+
+### 1. Smooth Transitions and Keyframes
+
+Framer Motion simplifies the creation of smooth transitions and complex keyframe animations. The library's intuitive API allows developers to define animation variants using plain JavaScript objects. These variants can then be effortlessly integrated into components.
+
+```jsx
+import React from "react";
+import { motion } from "framer-motion";
+
+const ExampleComponent = () => {
+  const buttonVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
+  return (
+    <motion.button initial="hidden" animate="visible" variants={buttonVariants}>
+      Animated Button
+    </motion.button>
+  );
+};
+```
+
+### 2. Gesture-based Interactions
+
+With Framer Motion, adding gesture-based interactions to components becomes a breeze. By leveraging animation hooks like `useAnimation` and `useDrag`, developers can create interactive elements that respond to user input elegantly.
+
+For instance, consider a draggable card component:
+
+```jsx
+import React from "react";
+import { motion, useMotionValue, useDragControls } from "framer-motion";
+
+const DraggableCard = () => {
+  const controls = useDragControls();
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  return (
+    <motion.div drag dragControls={controls} style={{ x, y }}>
+      {/* Card content goes here */}
+    </motion.div>
+  );
+};
+```
+
+### 3. Animating Presence
+
+Framer Motion introduces the concept of animating presence, which simplifies the process of adding or removing components with smooth animations. This can be particularly useful when building dynamic layouts or modals.
+
+```jsx
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+
+const Modal = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div animate={{ opacity: isOpen ? 1 : 0 }} initial={{ opacity: 0 }}>
+      {isOpen && <div>{/* Modal content goes here */}</div>}
+    </motion.div>
+  );
+};
+```
+
+## Conclusion
+
+Framer Motion is undoubtedly a game-changer when it comes to web animation. Its intuitive API, smooth transitions, and gesture-based interactions allow developers to create captivating user experiences with minimal effort. By simplifying the animation process, Framer Motion empowers developers to bring websites to life effortlessly.
+
+So, the next time you embark on a web development project, consider integrating Framer Motion to enhance the interactivity and engagement of your website.
+
+## Sources
+
+- [Framer Motion Documentation](https://www.framer.com/api/motion/)
+- [ReactJS Documentation](https://reactjs.org/)
+- [Create React App](https://reactjs.org/docs/create-a-new-react-app.html)
