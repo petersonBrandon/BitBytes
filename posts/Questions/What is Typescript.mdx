@@ -1,0 +1,70 @@
+---
+title: What is TypeScript?
+tags: [Typescript, Web Dev]
+date: 7/20/2023
+author: Brandon Peterson
+author_image: https://firebasestorage.googleapis.com/v0/b/level-up-gt-479b6.appspot.com/o/Brandon.webp?alt=media&token=f7cd367f-40c0-4237-87f2-b8ec11dcf411
+read_time: 3-4 min
+image: http://localhost:3000/FreePik/TypeScript.png
+---
+
+![TypeScript](http://localhost:3000/FreePik/TypeScript.png)
+
+TypeScript is a popular programming language that is a superset of JavaScript, designed to enhance the development of large-scale applications. It was developed and maintained by Microsoft and first released in 2012. TypeScript adds static typing capabilities to JavaScript, allowing developers to catch errors early in the development process and improve the overall maintainability and reliability of their codebases.
+
+## Understanding TypeScript
+
+JavaScript is known for being a dynamic, weakly-typed language, which means variable types are determined at runtime, and it can lead to errors that may not be apparent until the code is executed. TypeScript addresses this issue by introducing optional static typing, which enables developers to define the data types of variables, function parameters, and return values during development. These type annotations are purely optional, making TypeScript code compatible with existing JavaScript codebases.
+
+## Advantages of TypeScript
+
+1. **Early Error Detection:** By defining types, TypeScript can catch errors during development, even before the code is executed. This saves time and effort by preventing common bugs that might occur in large codebases.
+
+2. **Improved Code Maintainability:** Static typing makes the codebase more self-documenting, which enhances readability and maintainability. Developers can better understand the purpose of variables and functions without reading extensive documentation.
+
+3. **Enhanced Collaboration:** Strong typing helps teams collaborate more efficiently by reducing misunderstandings and ensuring that everyone adheres to the defined data structures and interfaces.
+
+4. **Easy Integration:** TypeScript can be gradually integrated into existing JavaScript projects, allowing developers to adopt it at their own pace. This flexibility makes it a practical choice for both new and legacy projects.
+
+## Using TypeScript
+
+Here's a simple example to illustrate the difference between JavaScript and TypeScript:
+
+```typescript
+// JavaScript
+function add(a, b) {
+  return a + b;
+}
+
+// TypeScript
+function add(a: number, b: number): number {
+  return a + b;
+}
+```
+
+In the TypeScript version of the `add` function, we have added type annotations to the function parameters and the return value. This explicitly states that both `a` and `b` must be of type `number`, and the function will return a value of type `number`. If we attempt to pass non-numeric values, the TypeScript compiler will raise an error during development.
+
+## Compiling TypeScript
+
+Since browsers only understand JavaScript, TypeScript code must be transpiled (converted) into JavaScript before deployment. The TypeScript compiler, `tsc`, takes TypeScript files (`.ts`) and outputs JavaScript files (`.js`). Developers can specify the target ECMAScript version for compatibility.
+
+To compile the `example.ts` file into JavaScript using the latest ECMAScript version, use the following command:
+
+```bash
+tsc --target ES2021 example.ts
+```
+
+## Conclusion
+
+TypeScript brings the advantages of static typing to JavaScript, offering developers a powerful tool to catch errors early, improve code quality, and enhance collaboration in large projects. Its seamless integration with existing JavaScript codebases and robust tooling support make it a popular choice among developers.
+
+So, whether you are starting a new project or looking to enhance an existing one, TypeScript is worth considering for building scalable and reliable applications.
+
+---
+
+#### References and Additional Resources:
+
+1. [TypeScript Official Website](https://www.typescriptlang.org/)
+2. [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+3. [TypeScript on GitHub](https://github.com/microsoft/TypeScript)
+4. [TypeScript - Wikipedia](https://en.wikipedia.org/wiki/TypeScript)
