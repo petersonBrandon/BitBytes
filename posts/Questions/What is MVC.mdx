@@ -1,0 +1,52 @@
+---
+title: What is MVC?
+tags: [Web Dev]
+date: 7/21/2023
+author: Brandon Peterson
+author_image: https://firebasestorage.googleapis.com/v0/b/level-up-gt-479b6.appspot.com/o/Brandon.webp?alt=media&token=f7cd367f-40c0-4237-87f2-b8ec11dcf411
+read_time: 3-4 min
+image: https://blog.brandonpeterson.dev/FreePik/MVC.png
+---
+
+![TypeScript](https://blog.brandonpeterson.dev/FreePik/MVC.png)
+
+MVC, which stands for Model-View-Controller, is a widely used architectural pattern in software development that aims to enhance the organization, maintainability, and scalability of applications. This pattern separates the concerns of an application into three distinct components: **Model**, **View**, and **Controller**. By doing so, MVC promotes a clear separation of responsibilities, making it easier to develop, test, and maintain complex software systems.
+
+## Overview of the MVC Pattern
+
+1. **Model**: The Model is responsible for managing the data and business logic of the application. It represents the data structure and the rules to manipulate that data. The Model component does not depend on the other two components and works independently.
+
+2. **View**: The View is responsible for presenting the data to the user in a user-friendly format. It represents the UI (User Interface) and interacts with the Model to display the relevant information to the user. The View component should not contain any business logic; its primary role is to visualize data.
+
+3. **Controller**: The Controller acts as an intermediary between the Model and the View. It receives user input from the View and processes it accordingly. Based on the input, the Controller updates the Model and instructs the View to refresh its presentation. The Controller essentially controls the flow of data and user interactions.
+
+## How MVC Works in Practice
+
+To better understand how MVC works, let's consider an example of a simple web application that allows users to manage their to-do lists.
+
+1. **Model**: The Model in this scenario would define the structure of a to-do item, including attributes like task description, priority level, and completion status. It would also provide methods to create, read, update, and delete to-do items.
+
+2. **View**: The View would be responsible for displaying the list of to-do items to the user. It would present the data in a user-friendly format, such as a list with checkboxes to mark tasks as completed.
+
+3. **Controller**: The Controller would handle user interactions, like adding new tasks, marking tasks as complete, or deleting tasks. When a user adds a new task, the Controller would update the Model with the new item. After that, it would instruct the View to refresh and display the updated to-do list.
+
+By separating the Model, View, and Controller, we achieve several benefits:
+
+- **Modularity**: Each component can be developed independently, making it easier to manage the application's complexity and maintain code.
+
+- **Reusability**: With clear boundaries between components, they can be reused in different parts of the application or even in other projects.
+
+- **Testability**: Since the business logic is isolated within the Model and Controller, unit testing becomes more straightforward and efficient.
+
+- **Collaboration**: MVC promotes a structured approach, allowing developers to work collaboratively on different aspects of the application without stepping on each other's toes.
+
+## Additional Resources
+
+For further exploration of the MVC pattern and its implementation in various programming frameworks, consider checking out the following resources:
+
+1. [MVC Pattern - Wikipedia](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
+2. [Understanding Model-View-Controller - Microsoft Docs](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-5.0)
+
+By studying these resources, you will gain a deeper understanding of how the MVC pattern can be applied in different contexts and programming languages.
+
+Remember, mastering the MVC pattern takes time and practice, but it is a powerful tool to architect robust and maintainable applications. Happy coding!
