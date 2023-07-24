@@ -8,6 +8,7 @@ const NEXT_JS = { title: "NEXT.JS", color: "bg-black" };
 const HTML = { title: "HTML", color: "bg-orange-600" };
 const TAILWIND = { title: "TAILWIND", color: "bg-cyan-500" };
 const TYPESCRIPT = { title: "TYPESCRIPT", color: "bg-sky-700" };
+const FULL_STACK = { title: "FULL STACK", color: "bg-green-600" };
 
 const Tag = (props) => {
   const [tagColor, setTagColor] = useState();
@@ -37,6 +38,9 @@ const Tag = (props) => {
         break;
       case TYPESCRIPT.title:
         setTagColor(TYPESCRIPT.color);
+        break;
+      case FULL_STACK.title:
+        setTagColor(FULL_STACK.color);
         break;
 
       default:
