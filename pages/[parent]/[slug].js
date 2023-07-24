@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import Prism from "prismjs";
 import "prismjs/components/prism-jsx.min";
 import "prismjs/components/prism-typescript";
+import "prismjs/components/prism-sql";
 import Head from "next/head";
 import { useScroll, motion } from "framer-motion";
 
