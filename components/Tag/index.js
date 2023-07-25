@@ -9,6 +9,8 @@ const HTML = { title: "HTML", color: "bg-orange-600" };
 const TAILWIND = { title: "TAILWIND", color: "bg-cyan-500" };
 const TYPESCRIPT = { title: "TYPESCRIPT", color: "bg-sky-700" };
 const FULL_STACK = { title: "FULL STACK", color: "bg-green-600" };
+const SQL = { title: "SQL", color: "bg-pink-600" };
+const NO_SQL = { title: "NOSQL", color: "bg-emerald-700" };
 
 const Tag = (props) => {
   const [tagColor, setTagColor] = useState();
@@ -42,15 +44,19 @@ const Tag = (props) => {
       case FULL_STACK.title:
         setTagColor(FULL_STACK.color);
         break;
+      case SQL.title:
+        setTagColor(SQL.color);
+        break;
+      case NO_SQL.title:
+        setTagColor(NO_SQL.color);
+        break;
 
       default:
         setTagColor(WEB_DEV.color);
         break;
     }
   }, [props.title]);
-  return (
-    <div className={`p-2 ${tagColor} m-1 rounded-lg bg-`}>{props.title}</div>
-  );
+  return <div className={`p-2 ${tagColor} m-1 rounded-lg`}>{props.title}</div>;
 };
 
 export default Tag;
