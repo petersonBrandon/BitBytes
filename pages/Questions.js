@@ -17,7 +17,7 @@ export default function Questions({ posts }) {
         <link rel="icon" href="/favicon_new.ico" />
       </Head>
       <main className="w-full flex flex-col items-center mb-16 min-h-screen">
-        <div className="w-4/5 flex flex-col items-center mt-16 pt-5 max-lg:pt-7">
+        <div className="w-4/5 flex flex-col items-center mt-16 pt-5 max-lg:pt-14 max-lg:w-11/12">
           <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12">
             <h2 className="flex flex-row items-center justify-center mr-3">
               <HiOutlineQuestionMarkCircle className="mr-4 max-lg:w-9 max-lg:h-auto" />
