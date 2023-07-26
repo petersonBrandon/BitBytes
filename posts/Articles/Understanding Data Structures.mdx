@@ -1,0 +1,179 @@
+---
+title: Understanding Data Structures
+subtitle: A brief overview
+tags: [Data Structures]
+date: 7/26/2023
+author: Brandon Peterson
+author_image: https://firebasestorage.googleapis.com/v0/b/level-up-gt-479b6.appspot.com/o/Brandon.webp?alt=media&token=f7cd367f-40c0-4237-87f2-b8ec11dcf411
+read_time: 7-8 min
+image: https://blog.brandonpeterson.dev/FreePik/DataStructures.png
+---
+
+![Data Structures](https://blog.brandonpeterson.dev/FreePik/DataStructures.png)
+
+Data structures are the backbone of every software application, facilitating the efficient organization and manipulation of data. As a developer, understanding different data structures is crucial for writing optimized and scalable code. In this article, we'll explore some common data structures and their implementations in TypeScript.
+
+## Introduction
+
+Data structures are containers that hold, organize, and manage data in various ways. They help in solving complex problems and optimizing algorithms for better performance. Choosing the right data structure is essential, as it impacts the efficiency of the overall application.
+
+In this article, we'll focus on five fundamental data structures: arrays, linked lists, stacks, queues, trees, and hash tables.
+
+## Arrays
+
+Arrays are one of the simplest and most commonly used data structures. They store elements of the same type in contiguous memory locations, allowing fast access through index-based retrieval.
+
+In TypeScript, you can create an array as follows:
+
+```typescript
+// Creating an array of numbers
+let numbers: number[] = [1, 2, 3, 4, 5];
+
+// Accessing elements in the array
+console.log(numbers[0]); // Output: 1
+```
+
+## Linked Lists
+
+Linked lists consist of nodes, where each node holds the data and a reference to the next node in the sequence. Unlike arrays, linked lists can efficiently insert or delete elements at any position, but they require more memory due to the extra reference pointers.
+
+Here's a simple implementation of a singly linked list in TypeScript:
+
+```typescript
+class Node {
+  data: number;
+  next: Node | null;
+
+  constructor(data: number) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
+class SinglyLinkedList {
+  head: Node | null;
+
+  constructor() {
+    this.head = null;
+  }
+
+  // Add a new node to the end of the list
+  append(data: number) {
+    const newNode = new Node(data);
+    if (!this.head) {
+      this.head = newNode;
+      return;
+    }
+    let current = this.head;
+    while (current.next) {
+      current = current.next;
+    }
+    current.next = newNode;
+  }
+}
+```
+
+## Stacks and Queues
+
+Stacks and queues are both linear data structures that work on a "first in, last out" (FILO) and "first in, first out" (FIFO) principle, respectively.
+
+Here's a TypeScript implementation of a stack and a queue:
+
+```typescript
+class Stack {
+  items: any[];
+
+  constructor() {
+    this.items = [];
+  }
+
+  push(item: any) {
+    this.items.push(item);
+  }
+
+  pop() {
+    return this.items.pop();
+  }
+}
+
+class Queue {
+  items: any[];
+
+  constructor() {
+    this.items = [];
+  }
+
+  enqueue(item: any) {
+    this.items.push(item);
+  }
+
+  dequeue() {
+    return this.items.shift();
+  }
+}
+```
+
+## Trees
+
+Trees are hierarchical data structures with a root node and child nodes connected by edges. They are extensively used in hierarchical representation and searching algorithms.
+
+Here's a basic implementation of a binary tree in TypeScript:
+
+```typescript
+class TreeNode {
+  data: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+
+  constructor(data: number) {
+    this.data = data;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class BinaryTree {
+  root: TreeNode | null;
+
+  constructor() {
+    this.root = null;
+  }
+
+  // Tree insertion logic goes here
+}
+```
+
+## Hash Tables
+
+Hash tables are data structures that store key-value pairs. They use a hash function to convert the key into an index, allowing efficient data retrieval.
+
+Although TypeScript doesn't have built-in hash table support, you can create a simple one using an object:
+
+```typescript
+class HashTable {
+  table: { [key: string]: any };
+
+  constructor() {
+    this.table = {};
+  }
+
+  set(key: string, value: any) {
+    this.table[key] = value;
+  }
+
+  get(key: string) {
+    return this.table[key];
+  }
+}
+```
+
+## Conclusion
+
+Data structures play a vital role in computer science and software development. Each data structure has its strengths and weaknesses, and understanding them enables developers to make informed decisions when designing algorithms and building applications.
+
+Remember that data structure selection depends on the specific use case and the performance requirements of your application. Continuously learning and experimenting with different data structures will sharpen your problem-solving skills and lead to more efficient and elegant code.
+
+## Additional Resources
+
+- [Visualgo](https://visualgo.net/en) - Visualizing data structures and algorithms through animations.
+- [Big-O Cheat Sheet](https://www.bigocheatsheet.com/) - A handy reference for algorithm complexity analysis.
