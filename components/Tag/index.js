@@ -12,6 +12,7 @@ const FULL_STACK = { title: "FULL STACK", color: "bg-green-600" };
 const SQL = { title: "SQL", color: "bg-pink-600" };
 const NO_SQL = { title: "NOSQL", color: "bg-emerald-700" };
 const DATA_SCTRUCTURES = { title: "DATA STRUCTURES", color: "bg-purple-600" };
+const GIT = { title: "GIT", color: "bg-orange-600" };
 
 const Tag = (props) => {
   const [tagColor, setTagColor] = useState();
@@ -54,13 +55,18 @@ const Tag = (props) => {
       case DATA_SCTRUCTURES.title:
         setTagColor(DATA_SCTRUCTURES.color);
         break;
+      case GIT.title:
+        setTagColor(GIT.color);
+        break;
 
       default:
         setTagColor(WEB_DEV.color);
         break;
     }
   }, [props.title]);
-  return <div className={`p-2 ${tagColor} m-1 rounded-lg`}>{props.title}</div>;
+  return (
+    <div className={`p-2 ${tagColor} m-1 rounded-lg`}>{`#${props.title}`}</div>
+  );
 };
 
 export default Tag;
