@@ -207,7 +207,7 @@ export default function BlogPost({ frontmatter, mdxSource }) {
             className="w-full h-full bg-gradient-to-r to-orange-600 from-amber-600 origin-left"
           />
         </div>
-        <div className="z-0 w-2/4 flex flex-col mt-20 pt-5 max-lg:w-11/12 max-lg:pt-9">
+        <div className="z-0 w-2/4 flex flex-col pt-5 max-lg:w-11/12 max-lg:pt-9">
           <div className="w-full flex flex-row items-center mb-5 justify-start max-lg:text-sm">
             <Link
               href="/"
