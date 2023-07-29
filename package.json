@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@firebase/analytics": "^0.10.0",
     "@fontsource/roboto": "^5.0.5",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/mdx": "^2.3.0",
@@ -23,6 +24,7 @@
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
     "feed": "^4.2.2",
+    "firebase": "^10.1.0",
     "framer-motion": "^10.12.18",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.263.1",

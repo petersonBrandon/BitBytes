@@ -8,14 +8,25 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
-import React from "react";
+import React, { useEffect } from "react";
 import ParticleEffect from "../components/Particles";
 import { FormControlLabel, Switch } from "@mui/material";
+import { getAnalytics, logEvent } from "firebase/analytics";
+import { firebaseApp } from "../firebase";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   const [particlesEnabled, setParticlesEnabled] = React.useState(true);
+
+  useEffect(() => {
+    const analytics = getAnalytics(firebaseApp);
+    logEvent(analytics, "site_view");
+    logEvent(analytics, `page_view_${router.route}`);
+    console.log(
+      `LOG: Site Viewed (site_view)\nPage Viewed (page_view_${router.route}): ${router.route}`
+    );
+  }, []);
 
   return (
     <AnimatePresence mode="wait" presenceAffectsLayout={false}>
