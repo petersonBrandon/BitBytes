@@ -15,7 +15,8 @@ const NavBtn = (props) => {
       className="h-full max-lg:w-full max-lg:h-auto max-lg:border-b-2 border-dashed"
     >
       <Link
-        href={`/${props.title}`}
+        href={props.href != undefined ? props.href : `/${props.title}`}
+        target={props.href != undefined ? "_blank" : ""}
         className="h-full w-full flex flex-row items-center justify-center p-5 max-lg:h-auto max-lg:p-2 max-lg:justify-start"
       >
         <motion.div variants={spinHover}>{props.icon}</motion.div>

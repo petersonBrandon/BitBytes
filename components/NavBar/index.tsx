@@ -9,6 +9,7 @@ import {
   HiOutlineInformationCircle,
 } from "react-icons/hi";
 import { IoMdClose, IoMdMenu } from "react-icons/io";
+import { AiOutlineGithub } from "react-icons/ai";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const NavBar = () => {
@@ -27,7 +28,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="bg-gray-700 t-0 w-full h-20 z-50 max-lg:flex flex-row-reverse justify-center items-center hidden max-lg:fixed">
+      <div className="bg-gray-700 t-0 w-full bg-opacity-50 backdrop-blur-md h-20 z-50 max-lg:flex flex-row-reverse justify-center items-center hidden max-lg:fixed">
         <div className="w-11/12 h-20 z-50 flex flex-row-reverse justify-between items-center">
           <div
             className="p-3 text-white"
@@ -56,7 +57,7 @@ const NavBar = () => {
         animate={mobileNavOpen ? { translateY: 0 } : {}}
         transition={{ bounce: false }}
         initial={isMobile ? { translateY: "-100vh" } : { translateY: 0 }}
-        className={`w-full bg-gray-700 drop-shadow-xl h-16 flex flex-row justify-center items-center fixed z-40 max-lg:h-screen max-lg:pt-16`}
+        className={`w-full bg-gray-700 bg-opacity-50 backdrop-blur-md drop-shadow-xl h-16 flex flex-row justify-center items-center fixed z-40 max-lg:h-screen max-lg:pt-16`}
       >
         <div className="h-full w-4/5 flex flex-row justify-between items-center max-lg:flex-col ">
           <motion.div whileHover="hover" className="max-lg:hidden">
@@ -90,6 +91,11 @@ const NavBar = () => {
             <NavBtn
               title="About"
               icon={<HiOutlineInformationCircle className="h-16 w-8" />}
+            />
+            <NavBtn
+              title="Github"
+              icon={<AiOutlineGithub className="h-16 w-8" />}
+              href="https://github.com/petersonBrandon/BitBytes"
             />
           </div>
         </div>

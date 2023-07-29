@@ -4,14 +4,15 @@ import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Tag } from "@/components";
 import Image from "next/image";
 import { BiChevronsRight } from "react-icons/bi";
 import {
   HiOutlineNewspaper,
   HiOutlineQuestionMarkCircle,
 } from "react-icons/hi";
-// import generateRssFeed from "@/utils/generateRSSFeed";
+import Tag from "../components/Tag";
+import React from "react";
+import ParticleEffect from "../components/Particles";
 
 export default function Home({ articles, questions }) {
   return (
@@ -47,7 +48,7 @@ export default function Home({ articles, questions }) {
         />
       </Head>
       <main className="w-full flex flex-col items-center mb-16 min-h-screen">
-        <div className="w-4/5 flex flex-col items-center mt-16 pt-5 max-lg:w-11/12">
+        <div className="z-0 w-4/5 flex flex-col items-center max-lg:w-11/12">
           <div>
             <Image
               src={"/BitBytes Logo.png"}
@@ -77,7 +78,7 @@ export default function Home({ articles, questions }) {
                   boxShadow: " 0px 0px 18px 4px rgba(237, 231, 227, 0.5)",
                 }}
                 key={post.slug}
-                className="w-2/4 border-2 border-white m-4 rounded-lg max-lg:w-full overflow-hidden"
+                className="w-2/4 border-2 bg-gray-800 border-white m-4 rounded-lg max-lg:w-full overflow-hidden"
               >
                 <Link href={`/${post.parent}/${post.slug}`}>
                   {post.image != null ? (
@@ -137,7 +138,7 @@ export default function Home({ articles, questions }) {
                   boxShadow: " 0px 0px 18px 4px rgba(237, 231, 227, 0.5)",
                 }}
                 key={post.slug}
-                className="w-2/4 border-2 border-white m-4 rounded-lg max-lg:w-full overflow-hidden"
+                className=" bg-gray-800 w-2/4 border-2 border-white m-4 rounded-lg max-lg:w-full overflow-hidden"
               >
                 <Link href={`/${post.parent}/${post.slug}`}>
                   {post.image != null ? (
@@ -189,8 +190,8 @@ export async function getStaticProps() {
   const articlesDirectory = path.join(process.cwd(), "posts", "Articles");
   const questionsDirectory = path.join(process.cwd(), "posts", "Questions");
 
-  const articles = [];
-  const questions = [];
+  const articles: ArticleType[] = [];
+  const questions: QuestionType[] = [];
 
   const articleItems = fs.readdirSync(articlesDirectory);
 
@@ -240,8 +241,12 @@ export async function getStaticProps() {
     });
   }
 
-  articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-  questions.sort((a, b) => new Date(b.date) - new Date(a.date));
+  articles.sort(
+    (a, b) => new Date(b.date).getDate() - new Date(a.date).getDate()
+  );
+  questions.sort(
+    (a, b) => new Date(b.date).getDate() - new Date(a.date).getDate()
+  );
 
   let recentArticles = articles;
   let recentQuestions = questions;

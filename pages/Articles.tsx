@@ -4,8 +4,9 @@ import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Tag } from "@/components";
+import { Tag } from "../components";
 import { HiOutlineNewspaper } from "react-icons/hi";
+import React from "react";
 
 export default function Articles({ posts }) {
   return (
@@ -17,7 +18,7 @@ export default function Articles({ posts }) {
         <link rel="icon" href="/favicon_new.ico" />
       </Head>
       <main className="w-full flex flex-col items-center mb-16 min-h-screen">
-        <div className="w-4/5 flex flex-col items-center mt-16 pt-5 max-lg:pt-14 max-lg:w-11/12">
+        <div className="z-0 w-4/5 flex flex-col items-center max-lg:pt-8 max-lg:w-11/12">
           <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12">
             <h2 className="flex flex-row items-center justify-center mr-3">
               <HiOutlineNewspaper className="mr-4 max-lg:w-9 max-lg:h-auto" />
@@ -30,7 +31,7 @@ export default function Articles({ posts }) {
                 boxShadow: " 0px 0px 18px 4px rgba(237, 231, 227, 0.5)",
               }}
               key={post.slug}
-              className="w-2/4 border-2 border-white m-4 rounded-lg max-lg:w-full overflow-hidden"
+              className="bg-gray-800 w-2/4 border-2 border-white m-4 rounded-lg max-lg:w-full overflow-hidden"
             >
               <Link href={`/${post.parent}/${post.slug}`}>
                 {post.image != null ? (
@@ -78,7 +79,7 @@ export default function Articles({ posts }) {
 export async function getStaticProps() {
   const postsDirectory = path.join(process.cwd(), "posts", "Articles");
 
-  const posts = [];
+  const posts: ArticleType[] = [];
 
   const folderItems = fs.readdirSync(postsDirectory);
 
@@ -104,7 +105,7 @@ export async function getStaticProps() {
     });
   }
 
-  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  posts.sort((a, b) => new Date(b.date).getDate() - new Date(a.date).getDate());
 
   return {
     props: {
