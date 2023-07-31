@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-export const getArticles = async () => {
+export const getArticles = async (all: boolean) => {
   const articlesDirectory = path.join(process.cwd(), "posts", "Articles");
 
   const articles: ArticleType[] = [];
@@ -38,14 +38,14 @@ export const getArticles = async () => {
 
   let recentArticles = articles;
 
-  if (articles.length > 5) {
+  if (articles.length > 5 && !all) {
     recentArticles = recentArticles.slice(0, 5);
   }
 
   return { articles: recentArticles };
 };
 
-export const getQuestions = async () => {
+export const getQuestions = async (all: boolean) => {
   const questionsDirectory = path.join(process.cwd(), "posts", "Questions");
 
   const questions: QuestionType[] = [];
@@ -81,7 +81,7 @@ export const getQuestions = async () => {
 
   let recentQuestions = questions;
 
-  if (questions.length > 5) {
+  if (questions.length > 5 && !all) {
     recentQuestions = recentQuestions.slice(0, 5);
   }
   return { questions: recentQuestions };

@@ -51,7 +51,7 @@ export default function Questions({ posts }) {
 }
 
 export async function getStaticProps() {
-  const questions = (await getQuestions()).questions;
+  const questions = (await getQuestions(true)).questions;
 
   return {
     props: {

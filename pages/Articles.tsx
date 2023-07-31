@@ -48,7 +48,7 @@ export default function Articles({ posts }) {
 }
 
 export async function getStaticProps() {
-  const articles = (await getArticles()).articles;
+  const articles = (await getArticles(true)).articles;
 
   return {
     props: {

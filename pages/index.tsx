@@ -125,8 +125,8 @@ export default function Home({ articles, questions }) {
 export async function getStaticProps() {
   // await generateRssFeed();
 
-  const articles = (await getArticles()).articles;
-  const questions = (await getQuestions()).questions;
+  const articles = (await getArticles(false)).articles;
+  const questions = (await getQuestions(false)).questions;
   return {
     props: {
       articles: articles,
