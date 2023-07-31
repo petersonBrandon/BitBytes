@@ -51,9 +51,14 @@ export default function App({ Component, pageProps }) {
           </div>
         </div>
         {particlesEnabled ? (
-          <div className="fixed">
+          <motion.div
+            className="fixed"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 0.75 } }}
+            exit={{ opacity: 0, transition: { duration: 0.2 } }}
+          >
             <ParticleEffect />
-          </div>
+          </motion.div>
         ) : (
           <></>
         )}
