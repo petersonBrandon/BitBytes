@@ -4,9 +4,10 @@ import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Tag } from "../components";
+import { Tag, Tile } from "../components";
 import { HiOutlineNewspaper } from "react-icons/hi";
 import React from "react";
+import { getArticles } from "../utils/getPosts";
 
 export default function Articles({ posts }) {
   return (
@@ -26,49 +27,19 @@ export default function Articles({ posts }) {
             </h2>
           </div>
           {posts.map((post) => (
-            <motion.div
-              whileHover={{
-                boxShadow: " 0px 0px 18px 4px rgba(237, 231, 227, 0.5)",
-              }}
+            <Tile
               key={post.slug}
-              className="bg-gray-800 w-2/4 border-2 border-white m-4 rounded-lg max-lg:w-full overflow-hidden"
-            >
-              <Link href={`/${post.parent}/${post.slug}`}>
-                {post.image != null ? (
-                  <div className="h-full max-h-96 w-full overflow-hidden flex flex-col items-center justify-center">
-                    <img
-                      src={post.image}
-                      alt="showcase_image"
-                      className="object-cover w-full"
-                    />
-                  </div>
-                ) : (
-                  <></>
-                )}
-                {post.image_credits_link != null ? (
-                  <div
-                    className="w-full pl-5 pr-5 text-right text-xs pt-1"
-                    onClick={() => window.open(post.image_credits_link)}
-                  >
-                    {post.image_credits_text}
-                  </div>
-                ) : (
-                  <></>
-                )}
-                <section className="flex flex-row justify-between items-start p-5 pb-0 max-lg:flex-col-reverse">
-                  <div>
-                    <h1 className="text-3xl mr-4">{post.title}</h1>
-                    <h2 className="text-xl mr-4">{post.subtitle}</h2>
-                  </div>
-                  <div>{post.date}</div>
-                </section>
-                <section className="flex flex-row items-start p-5">
-                  {post.tags.map((tag) => (
-                    <Tag title={tag} key={tag} />
-                  ))}
-                </section>
-              </Link>
-            </motion.div>
+              slug={post.slug}
+              title={post.title}
+              subtitle={post.subtitle}
+              parent={post.parent}
+              date={post.date}
+              image={post.image}
+              tags={post.tags}
+              read_time={post.read_time}
+              image_credits_link={post.image_credits_link}
+              image_credits_text={post.image_credits_text}
+            />
           ))}
         </div>
       </main>
@@ -77,39 +48,11 @@ export default function Articles({ posts }) {
 }
 
 export async function getStaticProps() {
-  const postsDirectory = path.join(process.cwd(), "posts", "Articles");
-
-  const posts: ArticleType[] = [];
-
-  const folderItems = fs.readdirSync(postsDirectory);
-
-  for (const item of folderItems) {
-    const itemPath = path.join(postsDirectory, item);
-    const fileContents = fs.readFileSync(itemPath, "utf8");
-    const { data } = matter(fileContents);
-
-    posts.push({
-      slug: path.basename(item, path.extname(item)),
-      parent: "Articles",
-      title: data.title,
-      subtitle: data.subtitle,
-      tags: data.tags,
-      date: data.date,
-      author: data.author,
-      author_image: data.author_image,
-      image: data.image !== undefined ? data.image : null,
-      image_credits_text:
-        data.image_credits_text != undefined ? data.image_credits_text : null,
-      image_credits_link:
-        data.image_credits_link != undefined ? data.image_credits_link : null,
-    });
-  }
-
-  posts.sort((a, b) => new Date(b.date).getDate() - new Date(a.date).getDate());
+  const articles = (await getArticles()).articles;
 
   return {
     props: {
-      posts: posts,
+      posts: articles,
     },
   };
 }
