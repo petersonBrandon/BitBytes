@@ -38,8 +38,8 @@ export const getArticles = async (all: boolean) => {
 
   let recentArticles = articles;
 
-  if (articles.length > 5 && !all) {
-    recentArticles = recentArticles.slice(0, 5);
+  if (articles.length > 3 && !all) {
+    recentArticles = recentArticles.slice(0, 3);
   }
 
   return { articles: recentArticles };
@@ -81,8 +81,8 @@ export const getQuestions = async (all: boolean) => {
 
   let recentQuestions = questions;
 
-  if (questions.length > 5 && !all) {
-    recentQuestions = recentQuestions.slice(0, 5);
+  if (questions.length > 3 && !all) {
+    recentQuestions = recentQuestions.slice(0, 3);
   }
   return { questions: recentQuestions };
 };
