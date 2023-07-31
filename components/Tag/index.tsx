@@ -24,6 +24,7 @@ const DATA_SCTRUCTURES: tagType = {
   color: "bg-purple-600",
 };
 const GIT: tagType = { title: "GIT", color: "bg-orange-600" };
+const TESTING: tagType = { title: "TESTING", color: "bg-green-600" };
 
 const Tag = (props: { title: string }) => {
   const [tagColor, setTagColor] = useState({});
@@ -68,6 +69,9 @@ const Tag = (props: { title: string }) => {
         break;
       case GIT.title:
         setTagColor(GIT.color);
+        break;
+      case TESTING.title:
+        setTagColor(TESTING.color);
         break;
 
       default:

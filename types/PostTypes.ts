@@ -9,6 +9,7 @@ interface ArticleType {
   tags: string[];
   date: string;
   author: string;
+  read_time: string;
   author_image: string;
   image: string;
   image_credits_text?: string;
@@ -26,6 +27,7 @@ interface QuestionType {
   tags: string[];
   date: string;
   author: string;
+  read_time: string;
   author_image: string;
   image: string;
   image_credits_text?: string;

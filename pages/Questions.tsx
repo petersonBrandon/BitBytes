@@ -4,9 +4,10 @@ import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Tag } from "../components";
+import { Tag, Tile } from "../components";
 import { HiOutlineQuestionMarkCircle } from "react-icons/hi";
 import React from "react";
+import { getQuestions } from "../utils/getPosts";
 
 export default function Questions({ posts }) {
   return (
@@ -29,63 +30,18 @@ export default function Questions({ posts }) {
             <h3 className="text-slate-400">No Questions Currently</h3>
           ) : (
             posts.map((post) => (
-              <motion.div
-                whileHover={{
-                  boxShadow: " 0px 0px 18px 4px rgba(237, 231, 227, 0.5)",
-                }}
+              <Tile
                 key={post.slug}
-                className="bg-gray-800 w-2/4 border-2 border-white m-4 rounded-lg max-lg:w-full overflow-hidden"
-              >
-                <Link href={`/${post.parent}/${post.slug}`}>
-                  {post.image != null ? (
-                    <div className="h-full max-h-96 w-full overflow-hidden flex flex-col items-center justify-center">
-                      <img
-                        src={post.image}
-                        alt="showcase_image"
-                        className="object-cover w-full"
-                      />
-                    </div>
-                  ) : (
-                    <></>
-                  )}
-                  {post.image_credits_link != null ? (
-                    <div
-                      className="w-full pl-5 pr-5 text-right text-xs pt-1"
-                      onClick={() => window.open(post.image_credits_link)}
-                    >
-                      {post.image_credits_text}
-                    </div>
-                  ) : (
-                    <></>
-                  )}
-                  <section className="flex flex-row justify-between items-start p-5 pb-0 max-lg:flex-col-reverse">
-                    <div>
-                      <h1 className="text-3xl mr-4">{post.title}</h1>
-                      {post.subtitle != null ? (
-                        <h2 className="text-xl">{post.subtitle}</h2>
-                      ) : (
-                        <></>
-                      )}
-                    </div>
-                    <div>{post.date}</div>
-                  </section>
-                  <section className="flex flex-row items-start p-5">
-                    {post.tags.map((tag) => (
-                      <Tag title={tag} key={tag} />
-                    ))}
-                  </section>
-                  {/* <div className="flex flex-row items-center">
-                  <div className="w-12 h-12 rounded-full overflow-hidden m-3">
-                    <img
-                      src={post.author_image}
-                      alt={post.author}
-                      className="object-cover h-full"
-                    />
-                  </div>
-                  <div>{post.author}</div>
-                </div> */}
-                </Link>
-              </motion.div>
+                slug={post.slug}
+                title={post.title}
+                parent={post.parent}
+                date={post.date}
+                image={post.image}
+                tags={post.tags}
+                read_time={post.read_time}
+                image_credits_link={post.image_credits_link}
+                image_credits_text={post.image_credits_text}
+              />
             ))
           )}
         </div>
@@ -95,39 +51,11 @@ export default function Questions({ posts }) {
 }
 
 export async function getStaticProps() {
-  const postsDirectory = path.join(process.cwd(), "posts", "Questions");
-
-  const posts: QuestionType[] = [];
-
-  const folderItems = fs.readdirSync(postsDirectory);
-
-  for (const item of folderItems) {
-    const itemPath = path.join(postsDirectory, item);
-    const fileContents = fs.readFileSync(itemPath, "utf8");
-    const { data } = matter(fileContents);
-
-    posts.push({
-      slug: path.basename(item, path.extname(item)),
-      parent: "Questions",
-      title: data.title,
-      subtitle: data.subtitle != undefined ? data.subtitle : null,
-      tags: data.tags,
-      date: data.date,
-      author: data.author,
-      author_image: data.author_image,
-      image: data.image != undefined ? data.image : null,
-      image_credits_text:
-        data.image_credits_text != undefined ? data.image_credits_text : null,
-      image_credits_link:
-        data.image_credits_link != undefined ? data.image_credits_link : null,
-    });
-  }
-
-  posts.sort((a, b) => new Date(b.date).getDate() - new Date(a.date).getDate());
+  const questions = (await getQuestions()).questions;
 
   return {
     props: {
-      posts: posts,
+      posts: questions,
     },
   };
 }
