@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
+import { BiLogoPatreon } from "react-icons/bi";
 
 export default function About() {
   return (
@@ -54,12 +55,26 @@ export default function About() {
                 className="object-cover h-full scale-125"
               />
             </div>
-            <Link
-              href="https://www.brandonpeterson.dev"
-              className="underline hover:decoration-dashed hover:text-orange-500 text-3xl max-lg:text-lg"
-            >
-              Brandon Peterson
-            </Link>
+            <div>
+              <Link
+                href="https://www.brandonpeterson.dev"
+                className="underline hover:decoration-dashed hover:text-orange-500 text-3xl max-lg:text-lg"
+              >
+                Brandon Peterson
+              </Link>
+              <Link
+                target="_blank"
+                href="https://www.patreon.com/BrandonPeterson/membership"
+                className={`flex flex-row items-center justify-start 
+                bg-white text-[#FF424D] p-4 text-lg mt-3 
+                rounded-xl ring-4 ring-[#FF424D] ring-inset 
+                hover:bg-[#FF424D] hover:ring-white hover:text-white 
+                ease-in-out duration-200`}
+              >
+                <BiLogoPatreon className="mr-3 w-10 h-full" />
+                Support me on Patreon
+              </Link>
+            </div>
           </div>
         </div>
       </main>
