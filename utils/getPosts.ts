@@ -32,9 +32,7 @@ export const getArticles = async (all: boolean) => {
     });
   }
 
-  articles.sort(
-    (a, b) => new Date(b.date).getDate() - new Date(a.date).getDate()
-  );
+  articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   let recentArticles = articles;
 
@@ -75,9 +73,7 @@ export const getQuestions = async (all: boolean) => {
     });
   }
 
-  questions.sort(
-    (a, b) => new Date(b.date).getDate() - new Date(a.date).getDate()
-  );
+  questions.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   let recentQuestions = questions;
 
