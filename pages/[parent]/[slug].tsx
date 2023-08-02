@@ -131,7 +131,7 @@ export default function BlogPost({ frontmatter, mdxSource }) {
     p: (props) => <p className="mt-2 h-auto text-xl" {...props} />,
     pre: (props) => <PreComponent {...props} frontmatter={frontmatter} />,
     img: (props) => (
-      <div className="mb-10">
+      <div className="mb-10 rounded-lg overflow-hidden">
         <img {...props} />
         {frontmatter.image_credits_link != null ? (
           <Link
