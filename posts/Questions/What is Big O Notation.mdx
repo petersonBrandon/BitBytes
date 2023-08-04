@@ -1,0 +1,129 @@
+---
+title: What is Big O Notation?
+tags: [Algorithms]
+date: 8/4/2023
+author: Brandon Peterson
+author_image: https://firebasestorage.googleapis.com/v0/b/level-up-gt-479b6.appspot.com/o/Brandon.webp?alt=media&token=f7cd367f-40c0-4237-87f2-b8ec11dcf411
+read_time: 3-4 min
+image: http://localhost:3000/FreePik/clock.jpg
+---
+
+![Clock](http://localhost:3000/FreePik/clock.jpg)
+
+Big O notation is a fundamental concept in computer science and programming that helps us analyze and describe the efficiency of algorithms and their performance as input sizes grow. It provides a standardized way to express how the runtime or space requirements of an algorithm increase relative to the size of the input. This understanding is crucial when designing and evaluating algorithms, as it allows us to make informed decisions about which algorithm to choose for a specific problem.
+
+## What is Big O Notation?
+
+Big O notation, often denoted as O(), is used to describe the upper bound or worst-case scenario of the time complexity of an algorithm. It quantifies how an algorithm's execution time or space usage grows in relation to the size of its input. In simpler terms, Big O notation gives us an idea of how quickly an algorithm's performance deteriorates as the input size becomes larger.
+
+In Big O notation, we express the time or space complexity in terms of n, which represents the input size. The notation ignores constant factors and lower-order terms, focusing solely on the dominant factors that determine an algorithm's behavior as n grows infinitely large.
+
+## Why is Big O Notation Important?
+
+Understanding Big O notation has several benefits:
+
+1. **Algorithm Comparison:** Big O notation allows us to compare the efficiency of different algorithms in an abstract and language-agnostic way. It helps us choose the most suitable algorithm for a specific task based on its growth rate.
+
+2. **Scalability Analysis:** When working with large datasets, it's crucial to select algorithms that can handle the data efficiently. Big O notation helps us predict how an algorithm will perform as the data size increases.
+
+3. **Optimization:** By analyzing the complexity of an algorithm, we can identify potential bottlenecks and areas for optimization. This leads to more efficient and responsive software.
+
+4. **Resource Management:** Big O notation isn't limited to time complexity; it can also describe space complexity. This is essential for managing memory usage in applications.
+
+## Common Big O Notations
+
+Let's explore some common Big O notations and their implications:
+
+1. **O(1) - Constant Time:**
+   An algorithm is considered O(1) if its execution time or space usage remains constant, regardless of the input size. This is the most efficient scenario.
+
+```typescript
+function printFirstElement(arr: number[]): void {
+  console.log(arr[0]);
+}
+```
+
+2. **O(log n) - Logarithmic Time:**
+   Algorithms with logarithmic complexity divide the input into smaller segments with each step. Binary search is a classic example.
+
+```typescript
+function binarySearch(arr: number[], target: number): number {
+  let low = 0;
+  let high = arr.length - 1;
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    if (arr[mid] === target) {
+      return mid;
+    } else if (arr[mid] < target) {
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+  return -1;
+}
+```
+
+3. **O(n) - Linear Time:**
+   Algorithms with linear complexity have their execution time or space usage proportional to the input size.
+
+```typescript
+function printAllElements(arr: number[]): void {
+  for (const num of arr) {
+    console.log(num);
+  }
+}
+```
+
+4. **O(n log n) - Linearithmic Time:**
+   These algorithms are more efficient than quadratic ones but not as efficient as linear algorithms. Many efficient sorting algorithms, like merge sort, fall into this category.
+
+```typescript
+function mergeSort(arr: number[]): number[] {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  const mid = Math.floor(arr.length / 2);
+  const leftHalf = mergeSort(arr.slice(0, mid));
+  const rightHalf = mergeSort(arr.slice(mid));
+  return merge(leftHalf, rightHalf);
+}
+```
+
+5. **O(n^2) - Quadratic Time:**
+   Quadratic time complexity occurs when each element in a collection has to be compared to every other element.
+
+```typescript
+function printAllPairs(arr: number[]): void {
+  for (const num1 of arr) {
+    for (const num2 of arr) {
+      console.log(num1, num2);
+    }
+  }
+}
+```
+
+6. **O(2^n) - Exponential Time:**
+   Algorithms with exponential complexity quickly become inefficient for larger inputs due to the rapid growth in computation or memory requirements.
+
+```typescript
+function fibonacci(n: number): number {
+  if (n <= 1) {
+    return n;
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+```
+
+## Choosing the Right Algorithm
+
+When selecting an algorithm for a task, it's essential to consider the problem's constraints and input size. An algorithm with a slower time complexity might be acceptable for smaller inputs but become impractical for larger ones. Always aim to strike a balance between algorithmic efficiency and practicality.
+
+## Conclusion
+
+Big O notation is a powerful tool that helps us analyze the efficiency of algorithms and make informed decisions about which algorithm to use in different scenarios. By understanding how an algorithm's performance scales with input size, we can create more efficient software that can handle varying workloads. Whether you're designing algorithms or optimizing code, Big O notation is an essential concept in the world of computer science.
+
+## References
+
+- [Big O Notation - Wikipedia](https://en.wikipedia.org/wiki/Big_O_notation)
+- [MIT - Big O Notation](http://web.mit.edu/16.070/www/lecture/big_o.pdf)
