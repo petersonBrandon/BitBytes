@@ -22,15 +22,15 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     const analytics = getAnalytics(firebaseApp);
     logEvent(analytics, "site_view");
-    logEvent(analytics, `page_view_${router.route}`);
+    logEvent(analytics, `page_view_${router.asPath}`);
     console.log(
-      `LOG: Site Viewed (site_view)\nPage Viewed (page_view_${router.route}): ${router.route}`
+      `LOG: Site Viewed (site_view)\nPage Viewed (page_view_${router.asPath}): ${router.asPath}`
     );
-  }, []);
+  }, [router]);
 
   return (
     <AnimatePresence mode="wait" presenceAffectsLayout={false}>
-      <motion.div key={router.route} className="text-white font-sans">
+      <motion.div key={router.asPath} className="text-white font-sans">
         <motion.div>
           <NavBar />
         </motion.div>
