@@ -15,7 +15,7 @@ const News = ({ posts }) => {
         <link rel="icon" href="/favicon_new.ico" />
       </Head>
       <main className="w-full flex flex-col items-center mb-16 min-h-screen">
-        <div className="z-0 w-4/5 flex flex-col items-center max-lg:w-full max-lg:pt-8">
+        <div className="z-0 w-4/5 flex flex-col items-center pt-8 max-lg:w-11/12">
           <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between items-end max-lg:w-11/12">
             <h2 className="flex flex-row items-center justify-center mr-3">
               {/* <HiOutlineNewspaper className="mr-4 max-lg:w-9 max-lg:h-auto" /> */}

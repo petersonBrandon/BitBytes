@@ -14,7 +14,7 @@ export default function About() {
         <link rel="icon" href="/favicon_new.ico" />
       </Head>
       <main className="w-full flex flex-col items-center mb-16 min-h-screen">
-        <div className="z-0 w-4/5 flex flex-col items-center max-lg:w-full max-lg:pt-8">
+        <div className="z-0 w-4/5 flex flex-col items-center pt-8 max-lg:w-11/12">
           <div className="w-3/4 text-4xl pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12">
             <h2>About BitBytes</h2>
           </div>
