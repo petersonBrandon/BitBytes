@@ -17,7 +17,7 @@ import { firebaseApp } from "../firebase";
 export default function App({ Component, pageProps }) {
   const router = useRouter();
 
-  const [particlesEnabled, setParticlesEnabled] = React.useState(false);
+  const [particlesEnabled, setParticlesEnabled] = React.useState(true);
 
   useEffect(() => {
     const analytics = getAnalytics(firebaseApp);

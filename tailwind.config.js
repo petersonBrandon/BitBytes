@@ -4,6 +4,13 @@ export const content = [
   "./components/**/*.{js,ts,jsx,tsx,mdx}",
 ];
 export const theme = {
-  extend: {},
+  extend: {
+    colors: {
+      "oxford-blue": "#01172F",
+      "dark-green": "#00635D",
+      "dark-green-light": "#008F85",
+      moonstone: "#08A4BD",
+    },
+  },
 };
 export const plugins = [];
