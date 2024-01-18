@@ -65,7 +65,7 @@ export default function Home({ articles, questions }) {
               </h2>
               <Link
                 href="Articles"
-                className="flex flex-row w-1/2 bg-orange-500 justify-center items-center p-3 rounded-lg hover:scale-110 ease-in-out duration-200"
+                className="flex flex-row w-1/2 bg-orange-500 justify-center items-center p-3 rounded-lg hover:bg-orange-700 ease-in-out duration-300"
               >
                 <h3 className="text-lg">All Articles</h3>
                 <BiChevronsRight className="max-lg:hidden" />
@@ -95,7 +95,7 @@ export default function Home({ articles, questions }) {
               </h2>
               <Link
                 href="Questions"
-                className="flex flex-row w-1/2 bg-orange-500 justify-center items-center p-3 rounded-lg hover:scale-110 ease-in-out duration-200"
+                className="flex flex-row w-1/2 bg-orange-500 justify-center items-center p-3 rounded-lg hover:bg-orange-700 ease-in-out duration-300"
               >
                 <h3 className="text-lg">All Questions</h3>
                 <BiChevronsRight className="max-lg:hidden" />
