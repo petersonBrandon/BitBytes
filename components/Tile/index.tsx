@@ -37,9 +37,9 @@ const Tile: React.FC<TileTypes> = ({
       key={slug}
       className="w-2/4 border-2 bg-gray-800 border-white m-4 rounded-lg max-lg:w-full overflow-hidden"
     >
-      <Link href={`/${parent}/${slug}`} className="flex">
+      <Link href={`/${parent}/${slug}`} className="flex max-lg:flex-col">
         {image != null ? (
-          <div className="h-full max-h-96 w-5/12 overflow-hidden flex flex-col items-center justify-center">
+          <div className="h-full max-h-96 w-5/12 overflow-hidden flex flex-col items-center justify-center max-lg:w-full">
             <img
               src={image}
               alt="showcase_image"
@@ -49,8 +49,8 @@ const Tile: React.FC<TileTypes> = ({
         ) : (
           <></>
         )}
-        <section className="flex flex-col justify-between items-start p-5 pb-0 max-lg:flex-col-reverse w-full">
-          <div className="flex justify-between w-full">
+        <section className="flex flex-col justify-between items-start p-5 pb-0 w-full">
+          <div className="flex justify-between w-full max-lg:flex-col max-lg:space-y-3">
             <div>
               <h1 className="text-3xl mr-4">{title}</h1>
               <h2 className="text-xl mr-4">{subtitle}</h2>
@@ -61,7 +61,7 @@ const Tile: React.FC<TileTypes> = ({
             </div>
           </div>
           <div className="flex justify-between w-full">
-            <div className="flex flex-row items-start pb-5 flex-wrap w-full">
+            <div className="flex flex-row items-start pb-5 flex-wrap w-full max-lg:pt-5">
               {tags.map((tag) => (
                 <Tag title={tag} key={tag} />
               ))}
