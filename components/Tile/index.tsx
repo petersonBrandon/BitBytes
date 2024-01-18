@@ -35,7 +35,7 @@ const Tile: React.FC<TileTypes> = ({
         boxShadow: " 0px 0px 18px 4px rgba(237, 231, 227, 0.5)",
       }}
       key={slug}
-      className="w-2/4 border-2 bg-gray-800 border-white m-4 rounded-lg max-lg:w-full overflow-hidden"
+      className="w-2/4 border-2 bg-[#033977] bg-opacity-50 backdrop-blur-md border-white m-4 rounded-lg max-lg:w-full overflow-hidden"
     >
       <Link href={`/${parent}/${slug}`} className="flex max-lg:flex-col">
         {image != null ? (

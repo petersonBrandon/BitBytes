@@ -7,6 +7,7 @@ import {
   HiOutlineNewspaper,
   HiOutlineQuestionMarkCircle,
   HiOutlineInformationCircle,
+  HiOutlineSpeakerphone,
 } from "react-icons/hi";
 import { IoMdClose, IoMdMenu } from "react-icons/io";
 import { AiOutlineGithub } from "react-icons/ai";
@@ -87,6 +88,10 @@ const NavBar = () => {
             <NavBtn
               title="Questions"
               icon={<HiOutlineQuestionMarkCircle className="h-16 w-8" />}
+            />
+            <NavBtn
+              title="News"
+              icon={<HiOutlineSpeakerphone className="h-16 w-8" />}
             />
             <NavBtn
               title="About"

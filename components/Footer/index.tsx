@@ -23,7 +23,7 @@ const Footer = () => {
           <Link
             href="https://www.brandonpeterson.dev"
             target="_blank"
-            className="underline hover:decoration-dashed hover:text-orange-500"
+            className="underline hover:text-orange-500"
           >
             Brandon Peterson
           </Link>

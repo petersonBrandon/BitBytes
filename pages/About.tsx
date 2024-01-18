@@ -22,7 +22,7 @@ export default function About() {
             {`Welcome to my blog! I\'m `}
             <Link
               href="https://www.brandonpeterson.dev"
-              className="underline hover:decoration-dashed text-orange-500"
+              className="underline text-orange-500"
             >
               Brandon Peterson
             </Link>
@@ -58,7 +58,7 @@ export default function About() {
             <div>
               <Link
                 href="https://www.brandonpeterson.dev"
-                className="underline hover:decoration-dashed hover:text-orange-500 text-3xl max-lg:text-lg"
+                className="underline hover:text-orange-500 text-3xl max-lg:text-lg"
               >
                 Brandon Peterson
               </Link>
