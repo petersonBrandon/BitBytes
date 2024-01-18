@@ -8,12 +8,13 @@ import { BiChevronsRight } from "react-icons/bi";
 import {
   HiOutlineNewspaper,
   HiOutlineQuestionMarkCircle,
+  HiOutlineSpeakerphone,
 } from "react-icons/hi";
 import React from "react";
 import { Tile } from "../components";
-import { getArticles, getQuestions } from "../utils/getPosts";
+import { getArticles, getNews, getQuestions } from "../utils/getPosts";
 
-export default function Home({ articles, questions }) {
+export default function Home({ articles, questions, news }) {
   return (
     <>
       <Head>
@@ -57,6 +58,36 @@ export default function Home({ articles, questions }) {
               className="h-96 w-full max-lg:h-72"
             />
           </div>
+          <section className="w-full flex flex-col items-center pt-5">
+            <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12 max-lg:text-xl items-center">
+              <h2 className="flex flex-row items-center justify-center mr-3">
+                <HiOutlineSpeakerphone className="mr-4 max-lg:w-9 max-lg:h-auto" />
+                Recent News
+              </h2>
+              <Link
+                href="News"
+                className="flex flex-row w-1/2 bg-dark-green justify-center items-center p-3 rounded-lg hover:bg-dark-green-light ease-in-out duration-300"
+              >
+                <h3 className="text-lg">All News</h3>
+                <BiChevronsRight className="max-lg:hidden" />
+              </Link>
+            </div>
+            {news.map((post) => (
+              <Tile
+                key={post.slug}
+                slug={post.slug}
+                title={post.title}
+                subtitle={post.subtitle}
+                parent={post.parent}
+                date={post.date}
+                image={post.image}
+                tags={post.tags}
+                read_time={post.read_time}
+                image_credits_link={post.image_credits_link}
+                image_credits_text={post.image_credits_text}
+              />
+            ))}
+          </section>
           <section className="w-full flex flex-col items-center pt-5">
             <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12 max-lg:text-xl items-center">
               <h2 className="flex flex-row items-center justify-center mr-3">
@@ -127,10 +158,12 @@ export async function getStaticProps() {
 
   const articles = (await getArticles(false)).articles;
   const questions = (await getQuestions(false)).questions;
+  const news = (await getNews(false)).news;
   return {
     props: {
       articles: articles,
       questions: questions,
+      news: news,
     },
   };
 }

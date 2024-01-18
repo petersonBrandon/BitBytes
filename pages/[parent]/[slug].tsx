@@ -202,7 +202,7 @@ export default function BlogPost({ frontmatter, mdxSource }) {
           content={frontmatter.image != undefined ? frontmatter.image : ""}
         />
       </Head>
-      <main className="w-full flex flex-col items-center mb-16">
+      <main className="w-full flex flex-col items-center mb-16 min-h-screen">
         <div className="z-10 mt-16 left-0 top-0 h-3 fixed w-screen flex flex-col justify-start items-start max-lg:mt-20">
           <motion.div
             style={{ scaleX: scrollYProgress }}
