@@ -84,7 +84,9 @@ const Tag = (props: { title: string }) => {
     }
   }, [props.title]);
   return (
-    <div className={`p-2 ${tagColor} m-1 rounded-lg`}>{`#${props.title}`}</div>
+    <div
+      className={`p-2 py-1 text-sm ${tagColor} m-1 ml-0 rounded-lg`}
+    >{`#${props.title}`}</div>
   );
 };
 

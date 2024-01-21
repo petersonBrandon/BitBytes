@@ -39,21 +39,21 @@ const Tile: React.FC<TileTypes> = ({
     >
       <Link href={`/${parent}/${slug}`} className="flex max-lg:flex-col">
         {image != null ? (
-          <div className="h-full max-h-96 w-5/12 overflow-hidden flex flex-col items-center justify-center max-lg:w-full">
+          <div className="max-h-96 w-5/12 overflow-hidden flex flex-col items-center justify-center max-lg:w-full">
             <img
               src={image}
               alt="showcase_image"
-              className="object-cover w-full"
+              className="object-cover w-full h-full"
             />
           </div>
         ) : (
           <></>
         )}
-        <section className="flex flex-col justify-between items-start p-5 pb-0 w-full">
+        <section className="flex flex-col justify-between items-start p-5 pb-0 w-full space-y-3">
           <div className="flex justify-between w-full max-lg:flex-col max-lg:space-y-3">
             <div>
-              <h1 className="text-3xl mr-4">{title}</h1>
-              <h2 className="text-xl mr-4">{subtitle}</h2>
+              <h1 className="text-2xl mr-4">{title}</h1>
+              <h2 className="text-md mr-4">{subtitle}</h2>
             </div>
             <div>
               <p className="mt-2">{`${read_time}`}</p>
