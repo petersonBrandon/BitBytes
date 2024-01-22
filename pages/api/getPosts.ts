@@ -3,6 +3,10 @@ import { getArticles, getNews, getQuestions } from "../../utils/getPosts";
 export default async function GET(req, res) {
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://www.brandonpeterson.dev"
+  );
   res.setHeader("Access-Control-Allow-Methods", "GET");
   res.setHeader(
     "Access-Control-Allow-Headers",
