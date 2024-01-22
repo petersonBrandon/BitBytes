@@ -5,7 +5,7 @@ import matter from "gray-matter";
 export const getArticles = async (all: boolean) => {
   const articlesDirectory = path.join(process.cwd(), "posts", "Articles");
 
-  const articles: ArticleType[] = [];
+  const articles: PostType[] = [];
 
   const articleItems = fs.readdirSync(articlesDirectory);
 
@@ -29,6 +29,7 @@ export const getArticles = async (all: boolean) => {
         data.image_credits_text != undefined ? data.image_credits_text : null,
       image_credits_link:
         data.image_credits_link != undefined ? data.image_credits_link : null,
+      category: data.category,
     });
   }
 
@@ -48,7 +49,7 @@ export const getArticles = async (all: boolean) => {
 export const getQuestions = async (all: boolean) => {
   const questionsDirectory = path.join(process.cwd(), "posts", "Questions");
 
-  const questions: QuestionType[] = [];
+  const questions: PostType[] = [];
 
   const questionItems = fs.readdirSync(questionsDirectory);
 
@@ -72,6 +73,7 @@ export const getQuestions = async (all: boolean) => {
         data.image_credits_text != undefined ? data.image_credits_text : null,
       image_credits_link:
         data.image_credits_link != undefined ? data.image_credits_link : null,
+      category: data.category,
     });
   }
 
@@ -90,7 +92,7 @@ export const getQuestions = async (all: boolean) => {
 export const getNews = async (all: boolean) => {
   const newsDirectory = path.join(process.cwd(), "posts", "News");
 
-  const articles: ArticleType[] = [];
+  const articles: PostType[] = [];
 
   const articleItems = fs.readdirSync(newsDirectory);
 
@@ -114,6 +116,7 @@ export const getNews = async (all: boolean) => {
         data.image_credits_text != undefined ? data.image_credits_text : null,
       image_credits_link:
         data.image_credits_link != undefined ? data.image_credits_link : null,
+      category: data.category,
     });
   }
 
