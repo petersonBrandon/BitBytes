@@ -17,16 +17,23 @@ const withMDX = require("@next/mdx")({
         // matching all API routes
         source: "/api/:path*",
         headers: [
-          { key: "Access-Control-Allow-Credentials", value: "true" },
-          { key: "Access-Control-Allow-Origin", value: "*" }, // replace this your actual origin
+          {
+            key: "Access-Control-Allow-Credentials",
+            value: String(
+              process.env.NEXT_PUBLIC_ACCESS_CONTROL_ALLOW_CREDENTIALS
+            ),
+          },
+          {
+            key: "Access-Control-Allow-Origin",
+            value: String(process.env.NEXT_PUBLIC_ACCESS_CONTROL_ALLOW_ORIGIN),
+          }, // replace this your actual origin
           {
             key: "Access-Control-Allow-Methods",
-            value: "GET,DELETE,PATCH,POST,PUT",
+            value: String(process.env.NEXT_PUBLIC_ACCESS_CONTROL_ALLOW_METHODS),
           },
           {
             key: "Access-Control-Allow-Headers",
-            value:
-              "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+            value: String(process.env.NEXT_PUBLIC_ACCESS_CONTROL_ALLOW_HEADERS),
           },
         ],
       },
