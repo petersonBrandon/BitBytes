@@ -84,22 +84,22 @@ const NavBar = () => {
               icon={<HiOutlineNewspaper className="h-16 w-8" />}
             />
             <NavBtn
-              title="Questions"
-              icon={<HiOutlineQuestionMarkCircle className="h-16 w-8" />}
-            />
-            <NavBtn
               title="News"
               icon={<HiOutlineSpeakerphone className="h-16 w-8" />}
+            />
+            <NavBtn
+              title="Questions"
+              icon={<HiOutlineQuestionMarkCircle className="h-16 w-8" />}
             />
             <NavBtn
               title="About"
               icon={<HiOutlineInformationCircle className="h-16 w-8" />}
             />
-            <NavBtn
+            {/* <NavBtn
               title="Github"
               icon={<AiOutlineGithub className="h-16 w-8" />}
               href="https://github.com/petersonBrandon/BitBytes"
-            />
+            /> */}
           </div>
         </div>
       </motion.div>
