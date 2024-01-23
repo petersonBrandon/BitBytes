@@ -40,7 +40,7 @@ const Tile: React.FC<TileTypes> = ({
     >
       <Link href={`/${parent}/${slug}`} className="flex max-lg:flex-col">
         {image != null ? (
-          <div className="max-h-52 w-1/2 overflow-hidden flex flex-col items-center justify-center max-lg:w-full aspect-video">
+          <div className="w-2/5 overflow-hidden flex flex-col items-center justify-center max-lg:w-full aspect-video">
             <img
               src={image}
               alt="showcase_image"
