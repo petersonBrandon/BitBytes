@@ -11,6 +11,16 @@ export const theme = {
       "dark-green-light": "#008F85",
       moonstone: "#08A4BD",
     },
+    keyframes: {
+      "click-bounce": {
+        "0%": { scale: "1" },
+        "50%": { scale: "0.8" },
+        "100%": { scale: "1" },
+      },
+    },
+    animation: {
+      "click-bounce": "click-bounce 0.3s ease-in-out",
+    },
   },
 };
 export const plugins = [];
