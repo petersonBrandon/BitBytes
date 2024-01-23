@@ -48,7 +48,7 @@ export default function Home({ articles, questions, news }) {
         />
       </Head>
       <main className="w-full flex flex-col items-center mb-16 min-h-screen">
-        <div className="z-0 w-4/5 flex flex-col items-center max-lg:w-11/12">
+        <div className="z-0 w-full flex flex-col items-center max-lg:w-11/12">
           <div>
             <Image
               src={"/BitBytes Logo.png"}
@@ -59,7 +59,7 @@ export default function Home({ articles, questions, news }) {
             />
           </div>
           <section className="w-full flex flex-col items-center pt-5">
-            <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12 max-lg:text-xl items-center">
+            <div className="w-full text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12 max-lg:text-xl items-center">
               <h2 className="flex flex-row items-center justify-center mr-3">
                 <HiOutlineSpeakerphone className="mr-4 max-lg:w-9 max-lg:h-auto" />
                 Recent News
@@ -89,7 +89,7 @@ export default function Home({ articles, questions, news }) {
             ))}
           </section>
           <section className="w-full flex flex-col items-center pt-5">
-            <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12 max-lg:text-xl items-center">
+            <div className="w-full text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12 max-lg:text-xl items-center">
               <h2 className="flex flex-row items-center justify-center mr-3">
                 <HiOutlineNewspaper className="mr-4 max-lg:w-9 max-lg:h-auto" />
                 Recent Articles
@@ -119,7 +119,7 @@ export default function Home({ articles, questions, news }) {
             ))}
           </section>
           <section className="w-full flex flex-col items-center pt-5 mt-10">
-            <div className="w-1/2 text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12 max-lg:text-xl items-center">
+            <div className="w-full text-3xl border-b-2 border-white pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12 max-lg:text-xl items-center">
               <h2 className="flex flex-row items-center justify-center mr-3">
                 <HiOutlineQuestionMarkCircle className="mr-4 max-lg:w-9 max-lg:h-auto" />
                 Recent Questions
