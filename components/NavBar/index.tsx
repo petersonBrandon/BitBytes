@@ -11,7 +11,6 @@ import {
 } from "react-icons/hi";
 import { IoMdClose, IoMdMenu } from "react-icons/io";
 import { AiOutlineGithub } from "react-icons/ai";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
 const NavBar = () => {
   const spinHover = {
@@ -20,10 +19,6 @@ const NavBar = () => {
   const textHover = {
     hover: { translateX: 10 },
   };
-
-  const [isMobile, setIsMobile] = useState(
-    useMediaQuery("(max-width:1024px)", { noSsr: true })
-  );
 
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
@@ -55,10 +50,13 @@ const NavBar = () => {
         </div>
       </div>
       <motion.div
-        animate={mobileNavOpen ? { translateY: 0 } : {}}
         transition={{ bounce: false }}
-        initial={isMobile ? { translateY: "-100vh" } : { translateY: 0 }}
-        className={`w-full bg-moonstone bg-opacity-50 backdrop-blur-md drop-shadow-xl h-16 flex flex-row justify-center items-center fixed z-40 max-lg:h-screen max-lg:pt-16`}
+        className={`w-full bg-moonstone bg-opacity-50 backdrop-blur-md drop-shadow-xl h-16 flex 
+        flex-row justify-center items-center fixed z-40 max-lg:h-screen max-lg:pt-16 ${
+          mobileNavOpen
+            ? "max-lg:-translate-y-0"
+            : "max-lg:-translate-y-y-complete"
+        } ease-in-out duration-300`}
       >
         <div className="h-full w-4/5 flex flex-row justify-between items-center max-lg:flex-col ">
           <motion.div whileHover="hover" className="max-lg:hidden">

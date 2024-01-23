@@ -21,6 +21,10 @@ export const theme = {
     animation: {
       "click-bounce": "click-bounce 0.3s ease-in-out",
     },
+    translate: {
+      "x-complete": "100vw",
+      "y-complete": "100vh",
+    },
   },
 };
 export const plugins = [];
