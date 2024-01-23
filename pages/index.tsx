@@ -66,10 +66,10 @@ export default function Home({ articles, questions, news }) {
               </h2>
               <Link
                 href="News"
-                className="flex flex-row w-1/2 bg-dark-green justify-center items-center p-3 rounded-lg hover:bg-dark-green-light ease-in-out duration-300"
+                className="flex flex-row w-1/5 bg-dark-green justify-center items-center p-3 rounded-lg hover:bg-dark-green-light ease-in-out duration-300 group"
               >
                 <h3 className="text-lg">All News</h3>
-                <BiChevronsRight className="max-lg:hidden" />
+                <BiChevronsRight className="max-lg:hidden group-hover:translate-x-3 ease-in-out duration-300" />
               </Link>
             </div>
             {news.map((post) => (
@@ -96,10 +96,10 @@ export default function Home({ articles, questions, news }) {
               </h2>
               <Link
                 href="Articles"
-                className="flex flex-row w-1/2 bg-dark-green justify-center items-center p-3 rounded-lg hover:bg-dark-green-light ease-in-out duration-300"
+                className="flex flex-row w-1/5 bg-dark-green justify-center items-center p-3 rounded-lg hover:bg-dark-green-light ease-in-out duration-300 group"
               >
                 <h3 className="text-lg">All Articles</h3>
-                <BiChevronsRight className="max-lg:hidden" />
+                <BiChevronsRight className="max-lg:hidden group-hover:translate-x-3 ease-in-out duration-300" />
               </Link>
             </div>
             {articles.map((post) => (
@@ -126,10 +126,10 @@ export default function Home({ articles, questions, news }) {
               </h2>
               <Link
                 href="Questions"
-                className="flex flex-row w-1/2 bg-dark-green justify-center items-center p-3 rounded-lg hover:bg-dark-green-light ease-in-out duration-300"
+                className="flex flex-row w-1/5 bg-dark-green justify-center items-center p-3 rounded-lg hover:bg-dark-green-light ease-in-out duration-300 group"
               >
                 <h3 className="text-lg">All Questions</h3>
-                <BiChevronsRight className="max-lg:hidden" />
+                <BiChevronsRight className="max-lg:hidden group-hover:translate-x-3 ease-in-out duration-300" />
               </Link>
             </div>
             {questions.map((post) => (
