@@ -18,7 +18,7 @@ const ShareBtns = () => {
     .map((part) => decodeURIComponent(part));
   const url = `https://blog.brandonpeterson.dev${asPath}`;
   return (
-    <div className="border-2 border-white rounded-lg p-5 mt-20 w-full text-center">
+    <div className="border-2 border-white rounded-lg p-5 mt-20 w-full text-center backdrop-blur-lg">
       <h4 className="text-2xl text-left ml-2">
         Know someone who might enjoy this?
       </h4>
