@@ -79,13 +79,29 @@ const PreComponent = (props) => {
   return (
     <>
       <div className="mt-5 mb-5">
-        <div className="flex items-center justify-between bg-gray-800 p-3 rounded-t-lg border-2 border-white border-b-0">
+        <div
+          className={`flex items-center justify-between ${
+            language ? " border-b-0 rounded-t-lg" : "rounded-lg"
+          } p-3 border-2 border-white bg-gray-800`}
+        >
           <span className="text-white font-semibold">
-            {language ? language : "Code Block"}
+            {language ? (
+              language
+            ) : (
+              <div
+                className={`w-full rounded-b-lg font-mono !m-0 opacity-70`}
+                ref={codeRef}
+              >
+                <code>{code}</code>
+              </div>
+            )}
           </span>
           <button
-            className="text-white font-semibold py-2 px-2 rounded"
+            className={`text-white font-semibold py-2 px-2 rounded ${
+              copied && "animate-click-bounce"
+            }`}
             onClick={() => {
+              setCopied(true);
               const codeToCopy = props.children.props.children;
 
               const textarea = document.createElement("textarea");
@@ -97,7 +113,6 @@ const PreComponent = (props) => {
               document.execCommand("copy");
 
               document.body.removeChild(textarea);
-              setCopied(true);
               setTimeout(() => {
                 setCopied(false);
               }, 5000);
@@ -110,12 +125,16 @@ const PreComponent = (props) => {
             )}
           </button>
         </div>
-        <pre
-          className={`language-${language} bg-slate-900 w-full !border-2 !border-white !border-t-0 rounded-b-lg p-3 font-mono !m-0`}
-          ref={codeRef}
-        >
-          <code>{code}</code>
-        </pre>
+        {language ? (
+          <pre
+            className={`language-${language} bg-slate-900 w-full !border-2 !border-white !border-t-0 rounded-b-lg p-3 font-mono !m-0`}
+            ref={codeRef}
+          >
+            <code>{code}</code>
+          </pre>
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );
@@ -129,7 +148,7 @@ export default function BlogPost({ frontmatter, mdxSource }) {
     ul: (props) => <ul className="m-6 list-disc" {...props} />,
     ol: (props) => <ol className="m-6 list-decimal" {...props} />,
     li: (props) => <li className="mt-2 h-auto text-xl" {...props} />,
-    p: (props) => <p className="mt-2 h-auto text-xl" {...props} />,
+    p: (props) => <p className="mt-8 h-auto text-xl" {...props} />,
     pre: (props) => <PreComponent {...props} frontmatter={frontmatter} />,
     img: (props) => (
       <div className="mb-10 rounded-lg overflow-hidden">
