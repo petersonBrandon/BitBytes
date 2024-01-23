@@ -41,11 +41,9 @@ export default function About() {
             others. Through my writings, I aim to not only provide valuable
             literature but also enhance my own understanding by teaching others.
             My ultimate goal is to support fellow developers on their journey
-            while ensuring an enjoyable experience for everyone involved. Let\'s
-            embark on this enlightening and enjoyable developer adventure
-            together!`}
+            while ensuring an enjoyable experience for everyone involved!`}
           </p>
-          <div className="flex flex-row items-center w-full mt-16 max-lg:w-11/12">
+          <div className="flex flex-row items-center w-full mt-16 max-lg:w-11/12 space-x-5">
             <div className="w-36 h-36 rounded-full overflow-hidden m-3 max-lg:w-24 max-lg:h-24">
               <Image
                 src={"/Brandon.webp"}
@@ -66,12 +64,12 @@ export default function About() {
                 target="_blank"
                 href="https://www.patreon.com/BrandonPeterson/membership"
                 className={`flex flex-row items-center justify-start 
-                bg-white text-[#FF424D] p-4 text-lg mt-3 
-                rounded-xl ring-4 ring-[#FF424D] ring-inset 
+                bg-white text-[#FF424D] px-4 py-2 text-lg mt-5 
+                rounded-xl ring-4 ring-[#FF424D] 
                 hover:bg-[#FF424D] hover:ring-white hover:text-white 
                 ease-in-out duration-200`}
               >
-                <BiLogoPatreon className="mr-3 w-10 h-full" />
+                <BiLogoPatreon className="mr-3 w-8 h-8" />
                 Support me on Patreon
               </Link>
             </div>
