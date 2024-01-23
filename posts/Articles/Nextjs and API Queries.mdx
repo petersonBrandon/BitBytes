@@ -1,0 +1,74 @@
+---
+title: Nextjs and API Queries
+subtitle: How to implement URL queries in a NEXT.JS API
+tags: [Next.js, Web Dev]
+date: 1/23/2024
+author: Brandon Peterson
+author_image: https://firebasestorage.googleapis.com/v0/b/level-up-gt-479b6.appspot.com/o/Brandon.webp?alt=media&token=f7cd367f-40c0-4237-87f2-b8ec11dcf411
+read_time: 2-3 min
+image: https://blog.brandonpeterson.dev/Articles_Images/Nextjs&API-queries.webp
+category: Articles
+---
+
+![Nextjs + API queries](https://blog.brandonpeterson.dev/Articles_Images/Nextjs&API-queries.webp)
+
+Creating APIs in NEXT.js is like having a superpower to make your website do more behind the scenes. Imagine you're running an online store – you've got a bunch of products in your database, and you want to show them off. Easy, right? But what if you only want to display specific items or filter products based on certain criteria? That's where the magic of API queries comes in!
+
+So, let's dive into it. Say you have an API endpoint to fetch all your products like this:
+
+```
+https://your-site.com/api/get-products
+```
+
+The code for this API might look something like this:
+
+```js
+// pages/api/get-products.js
+export default async function GET(req, res) {
+  try {
+    const products = [];
+
+    // Logic to get all of the products from the database
+
+    res.status(200).json({ products: products });
+  } catch (e) {
+    res.status(500).json({ error: e });
+  }
+}
+```
+
+Now, fetching all your products is cool, but most of the time, people are after something specific. They might be looking for that one perfect item or want to narrow down their search. Here's where API queries come to the rescue!
+
+Lets change up our original URL to something like this:
+
+```
+https://your-site.com/api/get-products?search=Cards
+```
+
+This `?search=Cards` on the end of the URL is a query! In this case a query to only get products that match "Cards". However, our API doesn't know what to do with this!
+
+So, let's jazz up the API file to handle these URL queries:
+
+```js
+// pages/api/get-products.js
+export default async function GET(req, res) {
+  try {
+    const products = [];
+
+    const query = req.query;
+    const { search } = query;
+
+    // Logic to get all of the products from the database based on the search query
+
+    res.status(200).json({ products: products });
+  } catch (e) {
+    res.status(500).json({ error: e });
+  }
+}
+```
+
+And voila! You can now specify a search item and get only what you're looking for from the database. It's like having a personal shopper for your website!
+
+This example is just the tip of the iceberg when it comes to using API queries in NEXT.js. The possibilities are endless – you can make queries as simple or as complex as your application needs.
+
+Happy coding! 🚀
