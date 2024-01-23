@@ -68,7 +68,7 @@ export default function App({ Component, pageProps }) {
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
           className="z-0 pt-20 max-lg:pt-0 flex flex-col justify-center items-center"
         >
-          <div className="w-7/12">
+          <div className="w-7/12 max-2xl:w-9/12 max-xl:w-11/12">
             <Component {...pageProps} />
           </div>
           <Footer />
