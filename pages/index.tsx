@@ -24,7 +24,7 @@ export default function Home({ articles, questions, news }) {
         <meta
           name="title"
           property="og:title"
-          content="BitBytes Developer Blog"
+          content="Stash Developer Blog"
         />
         <meta property="og:type" content="Website" />
         <meta
@@ -35,12 +35,12 @@ export default function Home({ articles, questions, news }) {
         {/* <meta
           name="description"
           property="og:description"
-          content="BitBytes Developer Blog"
+          content="Stash Developer Blog"
         /> */}
         <meta name="author" content="Brandon Peterson" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@DevBrandon318" />
-        <meta name="twitter:title" content="BitBytes Developer Blog" />
+        <meta name="twitter:title" content="Stash Developer Blog" />
         {/* <meta name="twitter:description" content="View the album on Flickr." /> */}
         <meta
           name="twitter:image"
