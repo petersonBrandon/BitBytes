@@ -18,11 +18,11 @@ const ShareBtns = () => {
     .map((part) => decodeURIComponent(part));
   const url = `https://blog.brandonpeterson.dev${asPath}`;
   return (
-    <div className="border-2 border-white rounded-lg p-5 mt-20 w-full text-center backdrop-blur-lg">
+    <div className="border-2 border-white rounded-lg py-5 mt-20 w-full text-center backdrop-blur-lg">
       <h4 className="text-2xl text-left ml-2">
         Know someone who might enjoy this?
       </h4>
-      <div className="flex flex-row items-center justify-center w-full mt-5 max-lg:flex-col">
+      <div className="flex flex-row items-center justify-center w-full mt-5 max-lg:flex-col text-white">
         <FacebookShareButton url={url} className="w-full">
           <motion.div className="bg-sky-800 p-2 flex flex-row items-center rounded-lg ml-2 mr-2 justify-center max-lg:m-2 hover:bg-sky-600 ease-in-out duration-300">
             <BsFacebook className="w-8 h-auto" />

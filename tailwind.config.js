@@ -6,10 +6,10 @@ export const content = [
 export const theme = {
   extend: {
     colors: {
-      "oxford-blue": "#01172F",
-      "dark-green": "#00635D",
-      "dark-green-light": "#008F85",
-      moonstone: "#08A4BD",
+      "oxford-blue": "#0B063C",
+      "dark-green-light": "#41C5FB",
+      "dark-green": "#8B44FF",
+      moonstone: "#8B44FF",
     },
     keyframes: {
       "click-bounce": {

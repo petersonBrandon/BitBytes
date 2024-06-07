@@ -29,7 +29,7 @@ const ParticleEffect = () => {
       options={{
         background: {
           color: {
-            value: "#01172F",
+            value: "#ffffff",
           },
         },
         fpsLimit: 120,
@@ -57,10 +57,10 @@ const ParticleEffect = () => {
         },
         particles: {
           color: {
-            value: "#ffffff",
+            value: "#41C5FB",
           },
           links: {
-            color: "#ffffff",
+            color: "#41C5FB",
             distance: 150,
             enable: true,
             opacity: 0.5,

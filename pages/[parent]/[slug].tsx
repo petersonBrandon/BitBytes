@@ -82,7 +82,7 @@ const PreComponent = (props) => {
         <div
           className={`flex items-center justify-between ${
             language ? " border-b-0 rounded-t-lg" : "rounded-lg"
-          } p-3 border-2 border-white bg-gray-800`}
+          } p-3 border-2 border-white bg-dark-green`}
         >
           <span className="text-white font-semibold">
             {language ? (
@@ -118,16 +118,12 @@ const PreComponent = (props) => {
               }, 5000);
             }}
           >
-            {!copied ? (
-              <BsFillClipboardFill />
-            ) : (
-              <BsFillClipboardCheckFill className="text-lime-500" />
-            )}
+            {!copied ? <BsFillClipboardFill /> : <BsFillClipboardCheckFill />}
           </button>
         </div>
         {language ? (
           <pre
-            className={`language-${language} bg-slate-900 w-full !border-2 !border-white !border-t-0 rounded-b-lg p-3 font-mono !m-0`}
+            className={`language-${language}  w-full !border-2 !border-white !border-t-0 rounded-b-lg p-3 font-mono !m-0`}
             ref={codeRef}
           >
             <code>{code}</code>
@@ -178,7 +174,7 @@ export default function BlogPost({ frontmatter, mdxSource }) {
     ),
     code: (props) => (
       <code
-        className="bg-slate-900 p-1 pl-2 text-sm pr-2 rounded-lg border-2 border-white max-lg:text-xs"
+        className="bg-dark-green text-white p-1 pl-2 text-sm pr-2 rounded-lg max-lg:text-xs"
         {...props}
       />
     ),
@@ -209,13 +205,13 @@ export default function BlogPost({ frontmatter, mdxSource }) {
         <meta
           name="description"
           property="og:description"
-          content="BitBytes Developer Blog"
+          content="Stash Developer Blog"
         />
         <meta name="author" content={frontmatter.author} />
         <meta name="twitter:card" content="summary" />
         {/* <meta name="twitter:site" content="@DevBrandon318" /> */}
         <meta name="twitter:title" content={frontmatter.title} />
-        <meta name="twitter:description" content="BitBytes Developer Blog" />
+        <meta name="twitter:description" content="Stash Developer Blog" />
         <meta
           name="twitter:image"
           content={frontmatter.image != undefined ? frontmatter.image : ""}
@@ -225,28 +221,28 @@ export default function BlogPost({ frontmatter, mdxSource }) {
         <div className="z-10 mt-16 left-0 top-0 h-3 fixed w-screen flex flex-col justify-start items-start max-lg:mt-20">
           <motion.div
             style={{ scaleX: scrollYProgress }}
-            className="w-full h-full bg-gradient-to-r to-orange-600 from-amber-600 origin-left"
+            className="w-full h-full bg-gradient-to-r to-dark-green-light from-dark-green origin-left"
           />
         </div>
         <div className="z-0 w-full flex flex-col pt-10 max-lg:w-11/12 max-lg:pt-9">
           <div className="w-full flex flex-row items-center mb-5 justify-start max-lg:text-sm">
             <Link
               href="/"
-              className="hover:text-orange-500 line-clamp-1 min-w-fit"
+              className="hover:text-dark-green line-clamp-1 min-w-fit ease-in-out duration-100"
             >
               Home
             </Link>
             <BiChevronsRight className="h-6 w-6 ml-2 mr-2 max-lg:w-7" />
             <Link
               href={`/${pathParts[0]}`}
-              className="hover:text-orange-500 line-clamp-1 min-w-fit"
+              className="hover:text-dark-green line-clamp-1 min-w-fit ease-in-out duration-100"
             >
               {pathParts[0]}
             </Link>
             <BiChevronsRight className="h-6 w-6 ml-2 mr-2 max-lg:w-7 max" />
             <Link
               href={`/${pathParts[0]}/${pathParts[1]}`}
-              className="hover:text-orange-500 line-clamp-1 min-w-fit max-lg:min-w-0"
+              className="hover:text-dark-green line-clamp-1 min-w-fit max-lg:min-w-0 ease-in-out duration-100"
             >
               {pathParts[1]}
             </Link>

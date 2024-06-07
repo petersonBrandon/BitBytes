@@ -8,7 +8,7 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About BitBytes</title>
+        <title>About Stash</title>
         <meta name="description" content="About" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon_new.ico" />
@@ -16,7 +16,7 @@ export default function About() {
       <main className="w-full flex flex-col items-center mb-16 min-h-screen">
         <div className="z-0 w-full flex flex-col items-center pt-8 max-lg:w-11/12">
           <div className="w-full text-4xl pb-5 mb-6 flex flex-row justify-between max-lg:w-11/12">
-            <h2>About BitBytes</h2>
+            <h2>About Stash</h2>
           </div>
           <p className="w-full text-xl max-lg:w-11/12">
             {`Welcome to my blog! I\'m `}
@@ -26,17 +26,17 @@ export default function About() {
             >
               Brandon Peterson
             </Link>
-            , a full-stack developer specializing in web and React Native
-            development. Here, I share my insights, discuss various developer
-            topics, answer common developer questions, and document my ongoing
-            learning journey. Join me as we explore the world of technology,
-            learn together, and shape the future of software development.
+            , a full-stack developer specializing in web development. Here, I
+            share my insights, discuss various developer topics, answer common
+            developer questions, and document my ongoing learning journey. Join
+            me as we explore the world of technology, learn together, and shape
+            the future of software development.
           </p>
           <div className="w-full text-4xl pb-5 mb-6 mt-16 flex flex-row justify-between max-lg:w-11/12">
-            <h2>The Purpose of BitBytes</h2>
+            <h2>The Purpose of Stash</h2>
           </div>
           <p className="w-full text-xl max-lg:w-11/12">
-            {`BitBytes is a platform where I not only express my thoughts, conduct
+            {`Stash is a platform where I not only express my thoughts, conduct
             research, and share my ideas but also create a learning space for
             others. Through my writings, I aim to not only provide valuable
             literature but also enhance my own understanding by teaching others.

@@ -24,7 +24,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="bg-moonstone t-0 w-full bg-opacity-50 backdrop-blur-md h-20 z-50 max-lg:flex flex-row-reverse justify-center items-center hidden max-lg:fixed">
+      <div className="bg-moonstone text-white t-0 w-full h-20 z-50 max-lg:flex flex-row-reverse justify-center items-center hidden max-lg:fixed">
         <div className="w-11/12 h-20 z-50 flex flex-row-reverse justify-between items-center">
           <div
             className="p-3 text-white"
@@ -39,7 +39,7 @@ const NavBar = () => {
           <Link href="/" className="flex flex-row items-center">
             <motion.div variants={spinHover}>
               <Image
-                src={"/ByteBits Icon.png"}
+                src={"/Logo Icon White.png"}
                 alt="Logo Icon"
                 width={400}
                 height={400}
@@ -51,7 +51,7 @@ const NavBar = () => {
       </div>
       <motion.div
         transition={{ bounce: false }}
-        className={`w-full bg-moonstone bg-opacity-50 backdrop-blur-md drop-shadow-xl h-16 flex 
+        className={`w-full bg-moonstone drop-shadow-xl h-16 flex 
         flex-row justify-center items-center fixed z-40 max-lg:h-screen max-lg:pt-16 ${
           mobileNavOpen
             ? "max-lg:-translate-y-0"
@@ -59,20 +59,20 @@ const NavBar = () => {
         } ease-in-out duration-300`}
       >
         <div className="h-full w-4/5 flex flex-row justify-between items-center max-lg:flex-col ">
-          <motion.div whileHover="hover" className="max-lg:hidden">
+          <motion.div
+            // whileHover="hover"
+            className="max-lg:hidden"
+          >
             <Link href="/" className="flex flex-row items-center">
               <motion.div variants={spinHover}>
                 <Image
-                  src={"/ByteBits Icon.png"}
+                  src={"/Logo White.png"}
                   alt="Logo Icon"
                   width={400}
                   height={400}
-                  className="w-14"
+                  className="w-24"
                 />
               </motion.div>
-              <motion.h1 variants={textHover} className="ml-3 text-xl">
-                BitBytes
-              </motion.h1>
             </Link>
           </motion.div>
           <div
@@ -95,11 +95,6 @@ const NavBar = () => {
               title="About"
               icon={<HiOutlineInformationCircle className="h-16 w-8" />}
             />
-            {/* <NavBtn
-              title="Github"
-              icon={<AiOutlineGithub className="h-16 w-8" />}
-              href="https://github.com/petersonBrandon/BitBytes"
-            /> */}
           </div>
         </div>
       </motion.div>

@@ -12,7 +12,7 @@ const NavBtn = (props) => {
   return (
     <motion.div
       whileHover="hover"
-      className="h-full max-lg:w-full max-lg:h-auto max-lg:border-b-2 border-dashed"
+      className="h-full max-lg:w-full max-lg:h-auto max-lg:border-b-2 border-dashed text-white"
     >
       <Link
         href={props.href != undefined ? props.href : `/${props.title}`}

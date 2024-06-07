@@ -1,0 +1,224 @@
+---
+title: Deep Dive - Array Data Structure
+subtitle: A look at the Array Data Structure
+tags: [TypeScript, Web Dev]
+date: 6/7/2024
+author: Brandon Peterson
+author_image: https://firebasestorage.googleapis.com/v0/b/level-up-gt-479b6.appspot.com/o/Brandon.webp?alt=media&token=f7cd367f-40c0-4237-87f2-b8ec11dcf411
+read_time: 5-6 min
+image: http://localhost:3000/Articles_Images/DEEP_DIVE_Array.png
+category: Articles
+---
+
+![React](http://localhost:3000/Articles_Images/DEEP_DIVE_Array.png)
+
+## Introduction
+
+Arrays are fundamental data structures in computer science and programming. They provide a way to store a collection of elements of the same type sequentially in memory, allowing efficient access to individual elements using their indices. Understanding arrays and their operations is crucial for any software developer, as arrays are widely used in various applications and programming languages.
+
+In this article, we'll delve deep into the array data structure, exploring its properties, common operations, and their effects on the data. We'll primarily focus on the array data structure in the context of TypeScript, a popular statically typed superset of JavaScript.
+
+## What is an Array?
+
+An array is a data structure consisting of a collection of elements, each identified by at least one array index or key. The elements are stored in contiguous memory locations, and the index serves as a reference to locate and access the elements.
+
+In TypeScript, arrays can hold elements of the same or different types, but it's generally recommended to keep them homogeneous for better performance and clarity.
+
+## Array Operations
+
+### 1. Creation
+
+Creating an array is straightforward in TypeScript. You can declare an array and initialize it with elements using square brackets `[]`.
+
+```typescript
+// Declaring and initializing an array of numbers
+let numbers: number[] = [1, 2, 3, 4, 5];
+
+// Declaring an empty array
+let emptyArray: string[] = [];
+```
+
+### 2. Accessing Elements
+
+You can access elements of an array using their index. Array indices in TypeScript are zero-based, meaning the first element is at index 0, the second element at index 1, and so on.
+
+```typescript
+let fruits: string[] = ["Apple", "Banana", "Orange"];
+console.log(fruits[0]); // Output: "Apple"
+console.log(fruits[2]); // Output: "Orange"
+```
+
+### 3. Insertion and Deletion
+
+Arrays support various operations for adding and removing elements.
+
+#### a. Push and Pop
+
+- `push`: Adds one or more elements to the end of an array. The method returns the new length of the array after the elements have been added.
+
+```typescript
+let colors: string[] = ["Red", "Green", "Blue"];
+let newLength = colors.push("Yellow"); // ["Red", "Green", "Blue", "Yellow"]
+console.log(newLength); // Output: 4
+```
+
+- `pop`: Removes the last element from an array and returns that element. If the array is empty, `pop` returns `undefined`.
+
+```typescript
+let removedColor = colors.pop(); // "Yellow"
+console.log(colors); // ["Red", "Green", "Blue"]
+console.log(removedColor); // Output: "Yellow"
+```
+
+#### b. Unshift and Shift
+
+- `unshift`: Adds one or more elements to the beginning of an array. The method returns the new length of the array after the elements have been added.
+
+```typescript
+let numbers: number[] = [2, 3, 4];
+let newLength = numbers.unshift(1); // [1, 2, 3, 4]
+console.log(newLength); // Output: 4
+```
+
+- `shift`: Removes the first element from an array and returns that element. If the array is empty, `shift` returns `undefined`.
+
+```typescript
+let removedNumber = numbers.shift(); // 1
+console.log(numbers); // [2, 3, 4]
+console.log(removedNumber); // Output: 1
+```
+
+#### c. Splice
+
+- `splice`: Adds or removes elements from an array at a specified index. The method returns an array of the deleted elements.
+
+  - Adding elements: `splice(start: number, deleteCount: number, ...items: T[])`
+
+  ```typescript
+  let months: string[] = ["Jan", "Feb", "Apr", "May"];
+  months.splice(2, 0, "Mar"); // ["Jan", "Feb", "Mar", "Apr", "May"]
+  console.log(months); // ["Jan", "Feb", "Mar", "Apr", "May"]
+  ```
+
+  - Removing elements: `splice(start: number, deleteCount: number)`
+
+  ```typescript
+  months.splice(3, 1); // ["Jan", "Feb", "Mar", "May"]
+  console.log(months); // ["Jan", "Feb", "Mar", "May"]
+  ```
+
+### 4. Concatenation and Slicing
+
+Arrays can be concatenated and sliced to create new arrays.
+
+#### a. Concat
+
+- `concat`: Concatenates two or more arrays and returns a new array without modifying the original arrays.
+
+```typescript
+let arr1: number[] = [1, 2];
+let arr2: number[] = [3, 4];
+let combinedArray = arr1.concat(arr2); // [1, 2, 3, 4]
+console.log(combinedArray); // Output: [1, 2, 3, 4]
+```
+
+#### b. Slice
+
+- `slice`: Extracts a section of an array and returns a new array without modifying the original array.
+
+```typescript
+let numbers: number[] = [1, 2, 3, 4, 5];
+let slicedArray = numbers.slice(1, 4); // [2, 3, 4]
+console.log(slicedArray); // Output: [2, 3, 4]
+```
+
+### 5. Searching and Sorting
+
+Arrays provide methods to search for elements and to sort the elements.
+
+#### a. IndexOf and LastIndexOf
+
+- `indexOf`: Returns the first index at which a given element can be found in the array, or -1 if the element is not present.
+
+```typescript
+let numbers: number[] = [1, 2, 3, 4, 3];
+console.log(numbers.indexOf(3)); // Output: 2
+console.log(numbers.indexOf(5)); // Output: -1
+```
+
+- `lastIndexOf`: Returns the last index at which a given element can be found in the array, or -1 if the element is not present.
+
+```typescript
+console.log(numbers.lastIndexOf(3)); // Output: 4
+console.log(numbers.lastIndexOf(5)); // Output: -1
+```
+
+#### b. Sort
+
+- `sort`: Sorts the elements of an array in place and returns the sorted array. By default, the sort is lexicographical (i.e., it sorts elements as strings).
+
+```typescript
+let fruits: string[] = ["Banana", "Orange", "Apple"];
+fruits.sort(); // ["Apple", "Banana", "Orange"]
+console.log(fruits); // Output: ["Apple", "Banana", "Orange"]
+```
+
+For numerical sorting or other custom sorting criteria, you can provide a compare function:
+
+```typescript
+let numbers: number[] = [10, 2, 33, 5];
+numbers.sort((a, b) => a - b); // [2, 5, 10, 33]
+console.log(numbers); // Output: [2, 5, 10, 33]
+```
+
+### 6. Iteration
+
+Arrays can be iterated over using loops or higher-order functions like `forEach`, `map`, `filter`, `reduce`, etc.
+
+#### forEach
+
+- `forEach`: Executes a provided function once for each array element. It doesn't return anything.
+
+```typescript
+let numbers: number[] = [1, 2, 3, 4, 5];
+numbers.forEach((num) => console.log(num)); // Output: 1 2 3 4 5
+```
+
+#### map
+
+- `map`: Creates a new array populated with the results of calling a provided function on every element in the array.
+
+```typescript
+let numbers: number[] = [1, 2, 3];
+let doubledNumbers = numbers.map((num) => num * 2); // [2, 4, 6]
+console.log(doubledNumbers); // Output: [2, 4, 6]
+```
+
+#### filter
+
+- `filter`: Creates a new array with all elements that pass the test implemented by the provided function.
+
+```typescript
+let numbers: number[] = [1, 2, 3, 4, 5];
+let evenNumbers = numbers.filter((num) => num % 2 === 0); // [2, 4]
+console.log(evenNumbers); // Output: [2, 4]
+```
+
+#### reduce
+
+- `reduce`: Executes a reducer function on each element of the array, resulting in a single output value.
+
+```typescript
+let numbers: number[] = [1, 2, 3, 4, 5];
+let sum = numbers.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  0
+); // 15
+console.log(sum); // Output: 15
+```
+
+In the example above, `reduce` takes two arguments: a reducer function and an initial value for the accumulator. The reducer function receives two parameters: the accumulator and the current value being processed. It returns the updated accumulator value, which is passed to the next iteration.
+
+## Conclusion
+
+Arrays are versatile data structures that play a crucial role in programming. Understanding their operations and their effects on the data is essential for writing efficient and maintainable code. In this article, we've explored various array operations and how they can be used in TypeScript. By mastering arrays and their higher-order functions like `filter` and `reduce`, developers can efficiently manage collections of data in their applications, enabling the creation of more expressive and concise code.

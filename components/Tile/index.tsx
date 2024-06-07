@@ -32,19 +32,19 @@ const Tile: React.FC<TileTypes> = ({
 }) => {
   return (
     <motion.div
-      whileHover={{
-        boxShadow: " 0px 0px 18px 4px rgba(237, 231, 227, 0.5)",
-      }}
+      // whileHover={{
+      //   boxShadow: " 0px 0px 18px 4px rgba(237, 231, 227, 0.5)",
+      // }}
       key={slug}
-      className="w-full border-2 bg-[#033977] bg-opacity-50 backdrop-blur-md border-white m-4 rounded-lg max-lg:w-full overflow-hidden group"
+      className="w-full text-black m-4 max-lg:w-full overflow-hidden group"
     >
       <Link href={`/${parent}/${slug}`} className="flex max-lg:flex-col">
         {image != null ? (
-          <div className="w-2/5 overflow-hidden flex flex-col items-center justify-center max-lg:w-full aspect-video">
+          <div className="w-2/5 rounded-lg overflow-hidden flex flex-col items-center justify-center max-lg:w-full aspect-video">
             <img
               src={image}
               alt="showcase_image"
-              className="object-cover w-full h-full group-hover:scale-125 ease-in-out duration-300"
+              className="object-cover w-full h-full"
             />
           </div>
         ) : (

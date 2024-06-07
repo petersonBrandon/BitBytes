@@ -17,7 +17,7 @@ import { firebaseApp } from "../firebase";
 export default function App({ Component, pageProps }) {
   const router = useRouter();
 
-  const [particlesEnabled, setParticlesEnabled] = React.useState(true);
+  const [particlesEnabled, setParticlesEnabled] = React.useState(false);
 
   useEffect(() => {
     const analytics = getAnalytics(firebaseApp);
@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <AnimatePresence mode="wait" presenceAffectsLayout={false}>
-      <motion.div key={router.asPath} className="text-white font-sans">
+      <motion.div key={router.asPath} className="text-black font-sans">
         <motion.div>
           <NavBar />
         </motion.div>

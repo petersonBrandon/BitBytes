@@ -42,7 +42,7 @@ export default async function generateRssFeed() {
   };
 
   const feedOptions = {
-    title: "BitBytes Developer Blog",
+    title: "Stash Developer Blog",
     description: "",
     id: site_url,
     link: site_url,
